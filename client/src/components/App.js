@@ -43,6 +43,12 @@ const App = () => {
     post("/api/review", TEST_REVIEW_BODY);
   };
 
+  const testGetReview = () => {
+    get("/api/review", {}).then((reviews) => {
+      console.log(reviews);
+    });
+  };
+
   const handleLogin = (res) => {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
@@ -61,6 +67,7 @@ const App = () => {
     <>
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <button onClick={testPostReview}>test post review</button>
+      <button onClick={testGetReview}>test get review</button>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
         <NotFound default />

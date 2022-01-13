@@ -62,6 +62,11 @@ router.post("/review", auth.ensureLoggedIn, (req, res) => {
 
   newReview.save().then((review) => res.send(review));
 });
+
+router.get("/review", (req, res) => {
+  Review.find(req.body).then((reviews) => res.send(reviews));
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
