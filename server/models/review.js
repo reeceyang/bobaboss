@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const ReviewSchema = new mongoose.Schema({
-  review_id: String,
   drink_name: String,
-  shop_yelp_id: String,
-  author_google_id: String,
+  shop_id: String,
+  author_id: String,
   timestamp: Date,
+  date_visited: Date,
   photo_link: String,
   price: String,
   size_temperature: String,

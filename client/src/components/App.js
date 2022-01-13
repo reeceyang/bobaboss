@@ -10,6 +10,20 @@ import "../utilities.css";
 
 import { get, post } from "../utilities";
 
+const TEST_REVIEW_BODY = {
+  drink_name: "Wintermelon Milk Tea",
+  shop_id: "shop_id",
+  date_visited: new Date(),
+  photo_link: "photo_link",
+  price: "$6.90",
+  size_temperature: "M",
+  ice: "50%",
+  sugar: "50%",
+  toppings: "tapioca, herbal jelly",
+  stars: 4.5,
+  review_text: "vv yummy",
+};
+
 /**
  * Define the "App" component
  */
@@ -24,6 +38,10 @@ const App = () => {
       }
     });
   }, []);
+
+  const testPostReview = () => {
+    post("/api/review", TEST_REVIEW_BODY);
+  };
 
   const handleLogin = (res) => {
     console.log(`Logged in as ${res.profileObj.name}`);
@@ -42,6 +60,7 @@ const App = () => {
   return (
     <>
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+      <button onClick={testPostReview}>test post review</button>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
         <NotFound default />

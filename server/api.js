@@ -11,6 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Review = require("./models/review");
 
 // import authentication library
 const auth = require("./auth");
@@ -19,7 +20,7 @@ const auth = require("./auth");
 const router = express.Router();
 
 //initialize socket
-const socketManager = require("./server-socket");
+// const socketManager = require("./server-socket");
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
@@ -41,7 +42,26 @@ router.get("/whoami", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+router.post("/review", auth.ensureLoggedIn, (req, res) => {
+  const currentTime = new Date();
+  const newReview = new Review({
+    drink_name: req.body.drink_name,
+    shop_id: req.body.shop_id,
+    author_id: req.user._id,
+    timestamp: currentTime,
+    date_visited: req.body.date_visited,
+    photo_link: req.body.photo_link,
+    price: req.body.price,
+    size_temperature: req.body.size_temperature,
+    ice: req.body.ice,
+    sugar: req.body.sugar,
+    toppings: req.body.toppings,
+    stars: req.body.stars,
+    review_text: req.body.review_text,
+  });
 
+  newReview.save().then((review) => res.send(review));
+});
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
