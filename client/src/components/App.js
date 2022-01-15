@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 // import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
+import NewReview from "./pages/NewReview.js";
 
 import "../utilities.css";
 
@@ -70,6 +71,7 @@ const App = () => {
       <button onClick={testGetReview}>test get review</button>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <NewReview path="/new" userId={userId} />
         <NotFound default />
       </Router>
     </>
