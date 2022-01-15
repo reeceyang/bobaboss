@@ -52,6 +52,12 @@ const App = () => {
     });
   };
 
+  const testAutocompleteShop = () => {
+    get("/api/autocomplete/shop", { term: "gongcha", location: "boston" }).then((reviews) => {
+      console.log(reviews);
+    });
+  };
+
   const handleLogin = (res) => {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
@@ -71,6 +77,7 @@ const App = () => {
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <button onClick={testPostReview}>test post review</button>
       <button onClick={testGetReview}>test get review</button>
+      <button onClick={testAutocompleteShop}>test autocompleteshop</button>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
         <Home path="/" />

@@ -23,6 +23,10 @@
 .boba-textarea:hover,
 .boba-textinput:hover {
   border: 2pt solid var(--primary);
+  cursor: inherit;
+}
+
+.boba-button:hover {
   cursor: pointer;
 }
 

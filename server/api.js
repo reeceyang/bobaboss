@@ -19,6 +19,8 @@ const auth = require("./auth");
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
 
+const yelp = require("./yelp-api.js");
+
 //initialize socket
 // const socketManager = require("./server-socket");
 
@@ -64,7 +66,14 @@ router.post("/review", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/review", (req, res) => {
-  Review.find(req.body).then((reviews) => res.send(reviews));
+  Review.find(req.query).then((reviews) => res.send(reviews));
+});
+
+router.get("/autocomplete/shop", (req, res) => {
+  yelp
+    .get("https://api.yelp.com/v3/businesses/search", req.query)
+    .then((res) => console.log(res))
+    .catch((error) => console.log(error));
 });
 
 // anything else falls to this "not found" case
