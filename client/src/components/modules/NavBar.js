@@ -13,7 +13,7 @@ const GOOGLE_CLIENT_ID = "57411572588-7kqi3h9r5bndth2mqdutet9d856ste27.apps.goog
 const NavBar = (props) => {
   return (
     <nav className="NavBar-container">
-      <Link to="/" className="NavBar-link">
+      <Link to="/">
         <div className="NavBar-title u-inlineBlock">BobaBoss</div>
       </Link>
       <div className="NavBar-linkContainer u-inlineBlock">

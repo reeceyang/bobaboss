@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound.js";
 // import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
 import NewReview from "./pages/NewReview.js";
+import Home from "./pages/Home.js";
 
 import "../utilities.css";
 
@@ -71,6 +72,7 @@ const App = () => {
       <button onClick={testGetReview}>test get review</button>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <Home path="/" />
         <NewReview path="/new" userId={userId} />
         <NotFound default />
       </Router>
