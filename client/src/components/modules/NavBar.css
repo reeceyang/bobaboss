@@ -1,20 +1,22 @@
 .NavBar-container {
   padding: var(--s) var(--m);
-  background-color: var(--primary);
+  background-color: var(--grey);
 }
 
-.NavBar-title {
-  color: var(--white);
-  font-size: 20px;
+.NavBar-link.NavBar-title {
+  color: var(--black);
+  font-size: 20pt;
 }
 
 .NavBar-linkContainer {
   margin-left: var(--l);
+  float: right;
 }
 
 .NavBar-link,
 .NavBar-link:visited {
-  color: var(--white);
+  font-size: 18pt;
+  color: var(--black);
   opacity: 0.6;
   text-decoration: none;
 }
@@ -25,6 +27,11 @@
 
 .NavBar-link.NavBar-login {
   opacity: 1;
+}
+
+.GoogleLogin {
+  height: 100%;
+  display: none;
 }
 
 .NavBar-link + .NavBar-link {

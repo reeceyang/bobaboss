@@ -12,9 +12,9 @@ const GOOGLE_CLIENT_ID = "57411572588-7kqi3h9r5bndth2mqdutet9d856ste27.apps.goog
  */
 const NavBar = (props) => {
   return (
-    <nav className="NavBar-container">
-      <Link to="/">
-        <div className="NavBar-title u-inlineBlock">BobaBoss</div>
+    <nav className="NavBar-container boba-box">
+      <Link to="/" className="NavBar-title NavBar-link u-inlineBlock">
+        BobaBoss
       </Link>
       <div className="NavBar-linkContainer u-inlineBlock">
         {props.userId && (
@@ -31,7 +31,7 @@ const NavBar = (props) => {
             buttonText="Logout"
             onLogoutSuccess={props.handleLogout}
             onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
+            className="NavBar-link NavBar-login GoogleLogin"
           />
         ) : (
           <GoogleLogin
@@ -39,7 +39,7 @@ const NavBar = (props) => {
             buttonText="Login"
             onSuccess={props.handleLogin}
             onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
+            className="NavBar-link NavBar-login GoogleLogin"
           />
         )}
       </div>

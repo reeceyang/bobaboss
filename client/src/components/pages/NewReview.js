@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { post } from "../../utilities";
 import { navigate } from "@reach/router";
+import "./NewReview.css";
 
 const NewReview = (props) => {
   const [review, setReview] = useState({
@@ -14,7 +15,7 @@ const NewReview = (props) => {
     sugar: "",
     toppings: "",
     stars: NaN,
-    review_text: "vv yummy",
+    review_text: "",
   });
 
   const handleClick = () => {
@@ -26,109 +27,122 @@ const NewReview = (props) => {
 
   return (
     <>
-      <div>
-        <label>Drink</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, drink_name: event.target.value });
-          }}
-          placeholder="example: Matcha Milk Tea"
-        />
+      <div className="NewReview-container">
+        <div className="NewReview-row">
+          <label>Flavor</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setReview({ ...review, drink_name: event.target.value });
+            }}
+            placeholder="example: Matcha Milk Tea"
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Shop</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              // setReview({ ...review, drink_name: event.target.value });
+            }}
+            placeholder="example: "
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Date</label>
+          <input
+            type="date"
+            onChange={(event) => {
+              const adjustedDate = new Date(event.target.value);
+              adjustedDate.setDate(adjustedDate.getDate() + 1);
+              console.log(adjustedDate);
+              setReview({ ...review, date_visited: adjustedDate });
+            }}
+            value={new Date(
+              review.date_visited.getTime() - review.date_visited.getTimezoneOffset() * 60000
+            )
+              .toISOString()
+              .substring(0, 10)}
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Photo</label>
+        </div>
+        <div className="NewReview-row">
+          <label>Price</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setReview({ ...review, price: Number(event.target.value) });
+            }}
+            placeholder="example: $6.90"
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Size and/or Temperature</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setReview({ ...review, size_temperature: event.target.value });
+            }}
+            placeholder="example: medium, hot"
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Ice</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setReview({ ...review, ice: event.target.value });
+            }}
+            placeholder="example: 50%"
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Sugar</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setReview({ ...review, sugar: event.target.value });
+            }}
+            placeholder="example: half"
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Toppings</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setReview({ ...review, toppings: event.target.value });
+            }}
+            placeholder="example: tapioca, herbal jelly"
+            className="boba-textinput"
+          />
+        </div>
+        <div className="NewReview-row">
+          <label>Stars</label>
+        </div>
+        <div className="NewReview-row">
+          <label>Review</label>
+          <textarea
+            onChange={(event) => {
+              setReview({ ...review, review_text: event.target.value });
+            }}
+            placeholder="example: very yummy but slightly too sweet"
+            className="boba-textarea"
+          />
+        </div>
       </div>
-      <div>
-        <label>Shop</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            // setReview({ ...review, drink_name: event.target.value });
-          }}
-          placeholder="example: "
-        />
-      </div>
-      <div>
-        <label>Date</label>
-        <input
-          type="date"
-          onChange={(event) => {
-            const adjustedDate = new Date(event.target.value);
-            adjustedDate.setDate(adjustedDate.getDate() + 1);
-            console.log(adjustedDate);
-            setReview({ ...review, date_visited: adjustedDate });
-          }}
-          value={new Date(
-            review.date_visited.getTime() - review.date_visited.getTimezoneOffset() * 60000
-          )
-            .toISOString()
-            .substring(0, 10)}
-        />
-      </div>
-      <div>
-        <label>Photo</label>
-      </div>
-      <div>
-        <label>Price</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, price: Number(event.target.value) });
-          }}
-          placeholder="example: $6.90"
-        />
-      </div>
-      <div>
-        <label>Size and/or Temperature</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, size_temperature: event.target.value });
-          }}
-          placeholder="example: medium, hot"
-        />
-      </div>
-      <div>
-        <label>Ice</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, ice: event.target.value });
-          }}
-          placeholder="example: 50%"
-        />
-      </div>
-      <div>
-        <label>Sugar</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, sugar: event.target.value });
-          }}
-          placeholder="example: half"
-        />
-      </div>
-      <div>
-        <label>Toppings</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, toppings: event.target.value });
-          }}
-          placeholder="example: tapioca, herbal jelly"
-        />
-      </div>
-      <div>
-        <label>Stars</label>
-      </div>
-      <div>
-        <label>Review</label>
-        <textarea
-          onChange={(event) => {
-            setReview({ ...review, review_text: event.target.value });
-          }}
-          placeholder="example: very yummy but slightly too sweet"
-        />
-      </div>
-      <button onClick={handleClick}>Submit</button>
+      <button onClick={handleClick} className="boba-button NewReview-submit">
+        Submit
+      </button>
     </>
   );
 };

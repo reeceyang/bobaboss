@@ -7,6 +7,7 @@ import NewReview from "./pages/NewReview.js";
 import Home from "./pages/Home.js";
 
 import "../utilities.css";
+import "../boba-ui.css";
 
 // import { socket } from "../client-socket.js";
 

@@ -1,0 +1,38 @@
+.boba-box {
+  border-radius: 5pt;
+  border: 1pt solid var(--grey);
+  margin: var(--xs);
+  background-color: var(--grey);
+}
+
+.boba-button,
+.boba-textinput,
+.boba-textarea {
+  border-radius: 10pt;
+  background-color: var(--grey);
+  border: 2pt solid var(--grey);
+  color: inherit;
+  outline: none;
+  font: inherit;
+  padding: 5pt;
+  transition: 0.25s;
+  margin: var(--xs);
+}
+
+.boba-button:hover,
+.boba-textarea:hover,
+.boba-textinput:hover {
+  border: 2pt solid var(--primary);
+  cursor: pointer;
+}
+
+.boba-button:active,
+.boba-textinput:focus,
+.boba-textarea:focus {
+  background-color: var(--medgrey);
+  border: 2pt solid var(--primary);
+}
+
+.boba-button:active {
+  transform: translateY(2pt);
+}

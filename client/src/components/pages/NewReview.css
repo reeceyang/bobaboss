@@ -1,0 +1,23 @@
+.NewReview-container {
+  display: grid;
+}
+
+.NewReview-row {
+  display: grid;
+}
+
+.NewReview-row label {
+  grid-column: 1;
+  margin: auto;
+}
+.NewReview-row input {
+  grid-column: 2;
+}
+
+.NewReview-row textarea {
+  grid-column: 2;
+}
+
+.NewReview-submit {
+  float: right;
+}
