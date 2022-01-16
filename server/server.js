@@ -53,6 +53,13 @@ mongoose
 const app = express();
 app.use(validator.checkRoutes);
 
+// force heroku to use https
+app.use((req, res, next) => {
+  if (req.header("x-forwarded-proto") !== "https")
+    res.redirect(`https://${req.header("host")}${req.url}`);
+  else next();
+});
+
 // allow us to process POST requests
 app.use(express.json());
 
