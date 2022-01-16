@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <pre>
-        {reviews.map((review) => {
+        {reviews.reverse().map((review) => {
           return JSON.stringify(review, null, 2);
         })}
       </pre>

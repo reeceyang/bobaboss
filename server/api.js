@@ -72,7 +72,7 @@ router.get("/review", (req, res) => {
 router.get("/autocomplete/shop", (req, res) => {
   yelp
     .get("https://api.yelp.com/v3/businesses/search", req.query)
-    .then((res) => console.log(res))
+    .then((shops) => res.send(shops))
     .catch((error) => console.log(error));
 });
 

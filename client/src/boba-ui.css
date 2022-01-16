@@ -40,3 +40,7 @@
 .boba-button:active {
   transform: translateY(2pt);
 }
+
+.boba-selected {
+  background-color: var(--primary) !important;
+}

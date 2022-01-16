@@ -1,5 +1,6 @@
 .NewReview-container {
   display: grid;
+  grid-template-columns: auto 1fr;
 }
 
 .NewReview-row {
@@ -10,9 +11,6 @@
   grid-column: 1;
   margin: auto;
 }
-.NewReview-row input {
-  grid-column: 2;
-}
 
 .NewReview-row textarea {
   grid-column: 2;
@@ -20,4 +18,8 @@
 
 .NewReview-submit {
   float: right;
+}
+
+.NewReview-shop {
+  min-width: 0;
 }

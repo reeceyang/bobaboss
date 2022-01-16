@@ -29,7 +29,6 @@ convertToJSON = (res) => {
 
 get = (endpoint, params = {}) => {
   const fullPath = endpoint + "?" + formatParams(params);
-  console.log(fullPath);
   return fetch(fullPath, {
     headers: {
       Authorization: "Bearer " + process.env.YELP_TOKEN,
