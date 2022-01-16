@@ -4,6 +4,7 @@ import { navigate } from "@reach/router";
 import "./NewReview.css";
 import SuggestionBox from "../modules/SuggestionBox";
 import { DebounceInput } from "react-debounce-input";
+import { Rating } from "react-simple-star-rating";
 
 const NewReview = (props) => {
   const [shop, setShop] = useState("");
@@ -148,7 +149,33 @@ const NewReview = (props) => {
         />
 
         <label>Stars</label>
-        <div></div>
+        <div>
+          <Rating
+            onClick={(rating) => {
+              setReview({ ...review, stars: rating });
+            }}
+            ratingValue={review.stars}
+            fillColor="#fec5bb"
+            allowHalfIcon={true}
+            transition={true}
+            showTooltip={true}
+            tooltipStyle={{ backgroundColor: "#f7f7f7", color: "#000" }}
+            tooltipDefaultText="your rating"
+            tooltipArray={[
+              "appalling",
+              "horrible",
+              "very bad",
+              "bad",
+              "average",
+              "fine",
+              "good",
+              "very good",
+              "great",
+              "masterpiece",
+            ]}
+          />
+        </div>
+
         <label>Review</label>
         <textarea
           onChange={(event) => {
