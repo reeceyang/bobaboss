@@ -14,7 +14,8 @@ const NewReview = (props) => {
     date_visited: new Date(),
     photo_link: "",
     price: NaN,
-    size_temperature: "",
+    size: "",
+    temperature: "",
     ice: "",
     sugar: "",
     toppings: "",
@@ -108,13 +109,23 @@ const NewReview = (props) => {
           className="boba-textinput"
         />
 
-        <label>Size and/or Temperature</label>
+        <label>Size</label>
         <input
           type="text"
           onChange={(event) => {
-            setReview({ ...review, size_temperature: event.target.value });
+            setReview({ ...review, size: event.target.value });
           }}
-          placeholder="example: medium, hot"
+          placeholder="example: medium"
+          className="boba-textinput"
+        />
+
+        <label>Temperature</label>
+        <input
+          type="text"
+          onChange={(event) => {
+            setReview({ ...review, temperature: event.target.value });
+          }}
+          placeholder="example: hot"
           className="boba-textinput"
         />
 
@@ -159,7 +170,7 @@ const NewReview = (props) => {
             allowHalfIcon={true}
             transition={true}
             showTooltip={true}
-            tooltipStyle={{ backgroundColor: "#f7f7f7", color: "#000" }}
+            tooltipStyle={{ backgroundColor: "var(--grey)", color: "#000" }}
             tooltipDefaultText="your rating"
             tooltipArray={[
               "appalling",

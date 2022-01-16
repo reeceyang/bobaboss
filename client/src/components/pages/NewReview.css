@@ -7,9 +7,12 @@
   display: grid;
 }
 
-.NewReview-row label {
+.NewReview-container label {
   grid-column: 1;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: var(--xs);
 }
 
 .NewReview-row textarea {

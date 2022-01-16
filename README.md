@@ -3,6 +3,11 @@ To-do:
 - [ ] sfx?
 - [ ] validate review input fields
 - [ ] save unsubmitted review in localstorage? or on server
+- [ ] make temperature a radio button/checkbox
+- [ ] fix shop select autocomplete (kind of broken rn)
+- [ ] store user name and restaurant name on review
+- [ ] force price to be number: https://stackoverflow.com/questions/24163889/html5-input-for-money-currency
+- [ ] show gravatar for profile button on navbar: https://kyleamathews.github.io/react-gravatar/
 
 color palette:
 https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
