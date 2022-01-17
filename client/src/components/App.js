@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
 import NewReview from "./pages/NewReview.js";
 import Home from "./pages/Home.js";
+import Explore from "./pages/Explore.js";
 
 import "../utilities.css";
 import "../boba-ui.css";
@@ -12,20 +13,6 @@ import "../boba-ui.css";
 // import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
-
-const TEST_REVIEW_BODY = {
-  drink_name: "Wintermelon Milk Tea",
-  shop_id: "shop_id",
-  date_visited: new Date(),
-  photo_link: "photo_link",
-  price: "$6.90",
-  size_temperature: "M",
-  ice: "50%",
-  sugar: "50%",
-  toppings: "tapioca, herbal jelly",
-  stars: 4.5,
-  review_text: "vv yummy",
-};
 
 /**
  * Define the "App" component
@@ -41,22 +28,6 @@ const App = () => {
       }
     });
   }, []);
-
-  const testPostReview = () => {
-    post("/api/review", TEST_REVIEW_BODY);
-  };
-
-  const testGetReview = () => {
-    get("/api/review", {}).then((reviews) => {
-      console.log(reviews);
-    });
-  };
-
-  const testAutocompleteShop = () => {
-    get("/api/autocomplete/shop", { term: "gongcha", location: "boston" }).then((reviews) => {
-      console.log(reviews);
-    });
-  };
 
   const handleLogin = (res) => {
     console.log(`Logged in as ${res.profileObj.name}`);
@@ -75,13 +46,11 @@ const App = () => {
   return (
     <>
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-      <button onClick={testPostReview}>test post review</button>
-      <button onClick={testGetReview}>test get review</button>
-      <button onClick={testAutocompleteShop}>test autocompleteshop</button>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
         <Home path="/" />
         <NewReview path="/new" userId={userId} />
+        <Explore path="/explore" />
         <NotFound default />
       </Router>
     </>

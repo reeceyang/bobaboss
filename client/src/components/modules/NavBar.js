@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
@@ -12,18 +12,21 @@ const GOOGLE_CLIENT_ID = "57411572588-7kqi3h9r5bndth2mqdutet9d856ste27.apps.goog
  */
 const NavBar = (props) => {
   return (
-    <nav className="NavBar-container boba-box">
+    <nav className="NavBar-container">
       <Link to="/" className="NavBar-title NavBar-link u-inlineBlock">
         BobaBoss
       </Link>
       <div className="NavBar-linkContainer u-inlineBlock">
         {props.userId && (
-          <Link to={`/profile/${props.userId}`} className="NavBar-link">
+          <Link to={`/profile/${props.userId}`} className="NavBar-link boba-button">
             Profile
           </Link>
         )}
-        <Link to="/new/" className="NavBar-link">
+        <Link to="/new/" className="NavBar-link boba-button">
           New Review
+        </Link>
+        <Link to="/explore/" className="NavBar-link boba-button">
+          Explore
         </Link>
         {props.userId ? (
           <GoogleLogout

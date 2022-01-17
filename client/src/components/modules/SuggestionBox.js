@@ -27,13 +27,13 @@ const SuggestionBox = (props) => {
           selected={suggestion.id === props.selected}
           shopName={
             suggestion.name +
-            " on " +
+            " at " +
             suggestion.location.address1 +
             ", " +
             suggestion.location.city
           }
         >
-          <span>{suggestion.name}</span> on{" "}
+          <span>{suggestion.name}</span> at{" "}
           <span>
             {suggestion.location.address1}, {suggestion.location.city}
           </span>
@@ -50,13 +50,13 @@ const SuggestionBox = (props) => {
             selected={suggestion.id === props.selected}
             shopName={
               suggestion.name +
-              " on " +
+              " at " +
               suggestion.location.address1 +
               ", " +
               suggestion.location.city
             }
           >
-            <span>{suggestion.name}</span> on{" "}
+            <span>{suggestion.name}</span> at{" "}
             <span>
               {suggestion.location.address1}, {suggestion.location.city}
             </span>
