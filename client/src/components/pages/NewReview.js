@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { get, post } from "../../utilities";
+import { get, post, convertToJSON } from "../../utilities";
 import { navigate } from "@reach/router";
 import "./NewReview.css";
 import SuggestionBox from "../modules/SuggestionBox";
@@ -36,21 +36,28 @@ const NewReview = (props) => {
 
   const photoInput = useRef(null);
   const handleClick = () => {
-    const photo = photoInput.current.files[0];
-
-    const formData = new FormData();
-
-    formData.append("photo", photo);
-    fetch("/api/upload/image", { method: "POST", body: formData });
-
-    post("/api/review", review);
-    navigate("..");
+    if (photoInput.current.files[0]) {
+      const photo = photoInput.current.files[0];
+      const formData = new FormData();
+      formData.append("photo", photo);
+      fetch("/api/upload/image", { method: "POST", body: formData })
+        .then(convertToJSON)
+        .then((res) => {
+          post("/api/review", { ...review, photo_link: res.photoName }).then(() => {
+            navigate("..");
+          });
+        });
+    } else {
+      post("/api/review", review).then(() => {
+        navigate("..");
+      });
+    }
   };
 
   if (!props.userId) return <div>Log in to post a review!</div>;
 
   return (
-    <>
+    <div className="NewReview-body">
       <h1>New Review</h1>
 
       <div className="NewReview-container">
@@ -210,7 +217,7 @@ const NewReview = (props) => {
       <button onClick={handleClick} className="boba-button NewReview-submit">
         Submit
       </button>
-    </>
+    </div>
   );
 };
 

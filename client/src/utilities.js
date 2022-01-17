@@ -19,7 +19,7 @@ function formatParams(params) {
 }
 
 // convert a fetch result to a JSON object with error handling for fetch and json errors
-function convertToJSON(res) {
+export function convertToJSON(res) {
   if (!res.ok) {
     throw `API request failed with response status ${res.status} and text: ${res.statusText}`;
   }

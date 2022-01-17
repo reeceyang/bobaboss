@@ -99,14 +99,13 @@ router.get("/autocomplete/shop", (req, res) => {
 });
 
 router.post("/upload/image", upload.single("photo"), auth.ensureLoggedIn, (req, res) => {
-  console.log(req.file);
-  const file = bucket.file(
-    req.user._id + "_" + String(new Date().getTime()) + "_" + req.file.originalname
-  );
+  const photoName = req.user._id + "_" + String(new Date().getTime()) + "_" + req.file.originalname;
+  const file = bucket.file(photoName);
   const contents = req.file.buffer;
-  file.save(contents, (err) => {
+  file.save(contents).then((err) => {
     if (!err) {
-      // File written successfully.
+      console.log(photoName);
+      res.send({ photoName: photoName });
     }
   });
 });
