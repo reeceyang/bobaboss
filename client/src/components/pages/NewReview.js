@@ -11,8 +11,9 @@ const NewReview = (props) => {
   const [review, setReview] = useState({
     drink_name: "",
     shop_id: "",
+    shop_name: "",
     date_visited: new Date(),
-    photo_link: "",
+    photo_link: null,
     price: NaN,
     size: "",
     temperature: "",
@@ -57,7 +58,7 @@ const NewReview = (props) => {
   if (!props.userId) return <div>Log in to post a review!</div>;
 
   return (
-    <div className="NewReview-body">
+    <div className="boba-body">
       <h1>New Review</h1>
 
       <div className="NewReview-container">
@@ -79,7 +80,7 @@ const NewReview = (props) => {
               showSuggestions();
             }}
             debounceTimeout={300}
-            placeholder="example: "
+            placeholder="example: reece’s tea at 3 ames st, cambridge"
             className="boba-textinput NewReview-shop"
             value={shop}
             onFocus={onShopFocus}
@@ -88,9 +89,9 @@ const NewReview = (props) => {
           <SuggestionBox
             suggestions={suggestions}
             selected={review.shop_id}
-            onChange={(shopId) => {
+            onChange={(shopId, shopName) => {
               console.log(shopId);
-              setReview({ ...review, shop_id: shopId });
+              setReview({ ...review, shop_id: shopId, shop_name: shopName });
             }}
             shopFocused={shopFocused}
           />

@@ -1,7 +1,14 @@
+.boba-body {
+  max-width: 60rem;
+  margin: auto;
+  padding: 5pt;
+}
+
 .boba-box {
-  border-radius: 5pt;
+  border-radius: 10pt;
   border: 1pt solid var(--grey);
   margin: var(--xs);
+  padding: 5pt;
   background-color: var(--grey);
 }
 

@@ -70,7 +70,9 @@ router.post("/review", auth.ensureLoggedIn, (req, res) => {
   const newReview = new Review({
     drink_name: req.body.drink_name,
     shop_id: req.body.shop_id,
+    shop_name: req.body.shop_name,
     author_id: req.user._id,
+    author_name: req.user.name,
     timestamp: currentTime,
     date_visited: req.body.date_visited,
     photo_link: req.body.photo_link,

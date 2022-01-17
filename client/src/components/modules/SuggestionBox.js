@@ -6,7 +6,7 @@ const SingleSuggestion = (props) => {
       className={"SuggestionBox-box boba-button" + (props.selected ? " boba-selected" : "")}
       onClick={(event) => {
         console.log("clicked");
-        props.onClick(props.shopId);
+        props.onClick(props.shopId, props.shopName);
       }}
       onMouseDown={(event) => event.preventDefault()}
     >
@@ -25,8 +25,15 @@ const SuggestionBox = (props) => {
           onClick={props.onChange}
           shopId={suggestion.id}
           selected={suggestion.id === props.selected}
+          shopName={
+            suggestion.name +
+            " on " +
+            suggestion.location.address1 +
+            ", " +
+            suggestion.location.city
+          }
         >
-          <span>{suggestion.name}</span> at{" "}
+          <span>{suggestion.name}</span> on{" "}
           <span>
             {suggestion.location.address1}, {suggestion.location.city}
           </span>
@@ -41,8 +48,15 @@ const SuggestionBox = (props) => {
             onClick={props.onChange}
             shopId={suggestion.id}
             selected={suggestion.id === props.selected}
+            shopName={
+              suggestion.name +
+              " on " +
+              suggestion.location.address1 +
+              ", " +
+              suggestion.location.city
+            }
           >
-            <span>{suggestion.name}</span> at{" "}
+            <span>{suggestion.name}</span> on{" "}
             <span>
               {suggestion.location.address1}, {suggestion.location.city}
             </span>

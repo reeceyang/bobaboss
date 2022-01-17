@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const ReviewSchema = new mongoose.Schema({
   drink_name: String,
   shop_id: String,
+  shop_name: String,
   author_id: String,
+  author_name: String,
   timestamp: Date,
   date_visited: Date,
   photo_link: String,
