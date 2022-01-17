@@ -19,7 +19,7 @@ const NavBar = (props) => {
       <div className="NavBar-linkContainer u-inlineBlock">
         {props.userId && (
           <Link to={`/profile/${props.userId}`} className="NavBar-link boba-button">
-            Profile
+            My Profile
           </Link>
         )}
         <Link to="/new/" className="NavBar-link boba-button">

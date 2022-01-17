@@ -19,12 +19,14 @@ import { get, post } from "../utilities";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [userName, setUserName] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         setUserId(user._id);
+        setUserName(user.name);
       }
     });
   }, []);
@@ -48,7 +50,7 @@ const App = () => {
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
-        <Home path="/" />
+        <Home path="/" userId={userId} userName={userName} />
         <NewReview path="/new" userId={userId} />
         <Explore path="/explore" />
         <NotFound default />
