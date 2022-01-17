@@ -19,7 +19,28 @@ const auth = require("./auth");
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
 
+const multer = require("multer");
+const upload = multer();
+
 const yelp = require("./yelp-api.js");
+
+const { Storage } = require("@google-cloud/storage");
+
+const keysEnvVar = Buffer.from(process.env["CREDS"], "base64").toString();
+if (!keysEnvVar) {
+  throw new Error("The $CREDS environment variable was not found!");
+}
+const keys = JSON.parse(keysEnvVar);
+
+const storageOptions = {
+  projectId: keys.project_id,
+  credentials: {
+    client_email: keys.client_email,
+    private_key: keys.private_key,
+  },
+};
+const storage = new Storage(storageOptions);
+const bucket = storage.bucket("boba-photos");
 
 //initialize socket
 // const socketManager = require("./server-socket");
@@ -75,6 +96,19 @@ router.get("/autocomplete/shop", (req, res) => {
     .get("https://api.yelp.com/v3/businesses/search", req.query)
     .then((shops) => res.send(shops))
     .catch((error) => console.log(error));
+});
+
+router.post("/upload/image", upload.single("photo"), auth.ensureLoggedIn, (req, res) => {
+  console.log(req.file);
+  const file = bucket.file(
+    req.user._id + "_" + String(new Date().getTime()) + "_" + req.file.originalname
+  );
+  const contents = req.file.buffer;
+  file.save(contents, (err) => {
+    if (!err) {
+      // File written successfully.
+    }
+  });
 });
 
 // anything else falls to this "not found" case

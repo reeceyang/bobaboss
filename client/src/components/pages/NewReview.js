@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useRef } from "react";
 import { get, post } from "../../utilities";
 import { navigate } from "@reach/router";
 import "./NewReview.css";
@@ -34,7 +34,15 @@ const NewReview = (props) => {
     });
   };
 
+  const photoInput = useRef(null);
   const handleClick = () => {
+    const photo = photoInput.current.files[0];
+
+    const formData = new FormData();
+
+    formData.append("photo", photo);
+    fetch("/api/upload/image", { method: "POST", body: formData });
+
     post("/api/review", review);
     navigate("..");
   };
@@ -43,6 +51,8 @@ const NewReview = (props) => {
 
   return (
     <>
+      <h1>New Review</h1>
+
       <div className="NewReview-container">
         <label>Flavor</label>
         <input
@@ -94,10 +104,11 @@ const NewReview = (props) => {
             .toISOString()
             .substring(0, 10)}
           className="boba-textinput"
+          required
         />
 
         <label>Photo</label>
-        <div></div>
+        <input type="file" name="photo" ref={photoInput} className="boba-textinput" />
 
         <label>Price</label>
         <input
@@ -171,7 +182,7 @@ const NewReview = (props) => {
             transition={true}
             showTooltip={true}
             tooltipStyle={{ backgroundColor: "var(--grey)", color: "#000" }}
-            tooltipDefaultText="your rating"
+            tooltipDefaultText="select your rating"
             tooltipArray={[
               "appalling",
               "horrible",
