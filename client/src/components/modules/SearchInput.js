@@ -36,10 +36,32 @@ const SearchInput = (props) => {
       />
     </>
   );
+  const exampleText = {
+    flavor: "example: Wintermelon Milk Tea",
+    franchise: "example: Gong Cha",
+    hot: "search across all hot drink reviews",
+    cold: "search across all cold drink reviews",
+    all: "show all reviews ;)",
+  };
   return (
     <>
       <div className="u-flex">
-        {shopSearch}
+        {searchMethod === "shop" ? (
+          shopSearch
+        ) : (
+          <input
+            type="text"
+            onChange={(event) => {
+              setInput(event.target.value);
+            }}
+            placeholder={exampleText[searchMethod]}
+            className="boba-textinput"
+            value={input}
+            onFocus={onShopFocus}
+            onBlur={onShopBlur}
+            style={{ flexGrow: 1 }}
+          />
+        )}
         <button
           className="boba-button"
           onClick={() => {
@@ -63,14 +85,16 @@ const SearchInput = (props) => {
         shopFocused={shopFocused}
       />
       <div className="u-textCenter">Search by: </div>
-      <RadioButton
-        name="searchMethods"
-        elements={["shop", "flavor"]}
-        checked={searchMethod}
-        onClick={(event) => {
-          setSearchMethod(event.target.parentNode.firstChild.value);
-        }}
-      />
+      <div className="u-textCenter">
+        <RadioButton
+          name="searchMethods"
+          elements={["shop", "flavor", "franchise", "hot", "cold", "all"]}
+          checked={searchMethod}
+          onClick={(event) => {
+            setSearchMethod(event.target.parentNode.firstChild.value);
+          }}
+        />
+      </div>
     </>
   );
 };

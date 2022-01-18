@@ -27,6 +27,7 @@
 }
 
 .boba-button:hover,
+.boba-button:focus,
 .boba-textarea:hover,
 .boba-textinput:hover {
   border: 2pt solid var(--primary);

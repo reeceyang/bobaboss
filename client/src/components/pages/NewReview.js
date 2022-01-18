@@ -3,6 +3,7 @@ import { get, post, convertToJSON } from "../../utilities";
 import { navigate } from "@reach/router";
 import "./NewReview.css";
 import SuggestionBox from "../modules/SuggestionBox";
+import RadioButton from "../modules/RadioButton";
 import { DebounceInput } from "react-debounce-input";
 import { Rating } from "react-simple-star-rating";
 
@@ -16,7 +17,7 @@ const NewReview = (props) => {
     photo_link: null,
     price: NaN,
     size: "",
-    temperature: "",
+    temperature: "cold",
     ice: "",
     sugar: "",
     toppings: "",
@@ -139,13 +140,13 @@ const NewReview = (props) => {
         />
 
         <label>Temperature</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setReview({ ...review, temperature: event.target.value });
+        <RadioButton
+          name="temperature"
+          elements={["cold", "hot"]}
+          checked={review.temperature}
+          onClick={(event) => {
+            setReview({ ...review, temperature: event.target.parentNode.firstChild.value });
           }}
-          placeholder="example: hot"
-          className="boba-textinput"
         />
 
         <label>Ice</label>

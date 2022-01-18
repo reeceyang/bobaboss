@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const RadioButton = (props) => {
   return (
-    <div onChange={props.onClick} className="u-textCenter">
+    <div onChange={props.onClick}>
       {props.elements.map((value) => {
         return (
           <label onClick={props.onClick}>
