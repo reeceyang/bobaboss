@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Feed from "../modules/Feed.js";
-import { get } from "../../utilities.js";
+import { get, formatParams } from "../../utilities.js";
 
 import "./Home.css";
 import SearchInput from "../modules/SearchInput.js";
+import { navigate } from "@reach/router";
 
 const Home = (props) => {
   const [reviews, setReviews] = useState([]);
+  const goExplore = (input, searchMethod) => {
+    navigate(
+      "/explore" +
+        "?" +
+        formatParams({
+          input: input,
+          searchMethod: searchMethod,
+        })
+    );
+  };
 
   useEffect(() => {
     document.title = "BobaBoss";
@@ -26,7 +37,7 @@ const Home = (props) => {
             <h3>Find your next flavor</h3>
           </>
         )}
-        <SearchInput />
+        <SearchInput onSearch={goExplore} />
         <h1>Trending</h1>
         <Feed reviews={reviews.reverse()} />
       </div>

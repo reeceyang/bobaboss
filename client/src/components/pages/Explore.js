@@ -5,7 +5,7 @@ import { get } from "../../utilities.js";
 
 import "./Search.css";
 
-const Explore = () => {
+const Explore = (props) => {
   const [reviews, setReviews] = useState([]);
 
   const getReviews = (input, searchMethod) => {
@@ -44,6 +44,14 @@ const Explore = () => {
       get("/api/review", {}).then((res) => setReviews(res));
     }
   };
+
+  useEffect(() => {
+    if (props.location.search) {
+      const query = Object.fromEntries(new URLSearchParams(props.location.search));
+      console.log(query);
+      if (query.searchMethod) getReviews(query.input, query.searchMethod);
+    }
+  }, []);
 
   return (
     <div className="boba-body">
