@@ -6,6 +6,7 @@
   background-color: #fff;
   padding-bottom: calc(5pt + var(--s));
   border-bottom: 1pt solid var(--medgrey);
+  z-index: 1000;
 }
 
 .NavBar-link.NavBar-title {

@@ -21,7 +21,8 @@ import { get, post } from "../utilities";
 const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userName, setUserName] = useState(undefined);
-
+  // uncomment for random primary colors
+  // const primaryColors = ["#FEC5BB", "#B4C8BC", "#FEC89A"];
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
@@ -30,6 +31,10 @@ const App = () => {
         setUserName(user.name);
       }
     });
+    // document.documentElement.style.setProperty(
+    //   "--primary",
+    //   primaryColors[Math.floor(Math.random() * primaryColors.length)]
+    // );
   }, []);
 
   const handleLogin = (res) => {
