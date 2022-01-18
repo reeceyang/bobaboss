@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import SuggestionBox from "./SuggestionBox";
 import { get } from "../../utilities.js";
+import RadioButton from "./RadioButton";
 
 const SearchInput = (props) => {
   const [searchMethod, setSearchMethod] = useState("shop");
@@ -31,24 +32,27 @@ const SearchInput = (props) => {
         value={input}
         onFocus={onShopFocus}
         onBlur={onShopBlur}
+        style={{ flexGrow: 1 }}
       />
     </>
   );
   return (
     <>
-      {shopSearch}
-      <button
-        className="boba-button"
-        onClick={() => {
-          if (searchMethod === "shop") {
-            props.onSearch(shopId, searchMethod);
-          } else {
-            props.onSearch(input, searchMethod);
-          }
-        }}
-      >
-        Search
-      </button>
+      <div className="u-flex">
+        {shopSearch}
+        <button
+          className="boba-button"
+          onClick={() => {
+            if (searchMethod === "shop") {
+              props.onSearch(shopId, searchMethod);
+            } else {
+              props.onSearch(input, searchMethod);
+            }
+          }}
+        >
+          Explore
+        </button>
+      </div>
       <SuggestionBox
         suggestions={suggestions}
         selected={shopId}
@@ -59,6 +63,14 @@ const SearchInput = (props) => {
         shopFocused={shopFocused}
       />
       <div className="u-textCenter">Search by: </div>
+      <RadioButton
+        name="searchMethods"
+        elements={["shop", "flavor"]}
+        checked={searchMethod}
+        onClick={(event) => {
+          setSearchMethod(event.target.parentNode.firstChild.value);
+        }}
+      />
     </>
   );
 };

@@ -7,8 +7,8 @@
 .boba-box {
   border-radius: 10pt;
   border: 1pt solid var(--grey);
-  margin: var(--xs);
-  padding: 5pt;
+  margin: 10pt var(--xs);
+  padding: 10pt;
   background-color: var(--grey);
 }
 

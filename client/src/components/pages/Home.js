@@ -20,9 +20,12 @@ const Home = (props) => {
         {!props.userId ? (
           <h1>Find the best boba in Boston</h1>
         ) : (
-          <h1>Welcome back, {props.userName}</h1>
+          <>
+            <h1>Welcome back, {props.userName}</h1>
+            <h3>Find your next flavor</h3>
+          </>
         )}
-        Find your next flavor: <SearchInput />
+        <SearchInput />
         <h1>Trending</h1>
         <Feed reviews={reviews.reverse()} />
       </div>

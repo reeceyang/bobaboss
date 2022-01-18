@@ -17,17 +17,17 @@ const NavBar = (props) => {
         BobaBoss
       </Link>
       <div className="NavBar-linkContainer u-inlineBlock">
-        {props.userId && (
-          <Link to={`/profile/${props.userId}`} className="NavBar-link boba-button">
-            My Profile
-          </Link>
-        )}
         <Link to="/new/" className="NavBar-link boba-button">
           New Review
         </Link>
         <Link to="/explore/" className="NavBar-link boba-button">
           Explore
         </Link>
+        {props.userId && (
+          <Link to={`/profile/${props.userId}`} className="NavBar-link boba-button">
+            My Profile
+          </Link>
+        )}
         {props.userId ? (
           <GoogleLogout
             clientId={GOOGLE_CLIENT_ID}
