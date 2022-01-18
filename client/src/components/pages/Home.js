@@ -9,6 +9,7 @@ const Home = (props) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    document.title = "BobaBoss";
     get("/api/review", {}).then((reviews) => {
       setReviews(reviews);
     });

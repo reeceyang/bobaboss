@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { get, post, convertToJSON } from "../../utilities";
 import { navigate } from "@reach/router";
 import "./NewReview.css";

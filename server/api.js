@@ -65,6 +65,12 @@ router.get("/whoami", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+router.get("/user", (req, res) => {
+  User.find({ _id: req.query.userId }).then((user) =>
+    res.send({ name: user[0].name, _id: user[0]._id })
+  );
+});
+
 router.post("/review", auth.ensureLoggedIn, (req, res) => {
   const currentTime = new Date();
   const newReview = new Review({

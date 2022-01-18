@@ -6,6 +6,7 @@ import NavBar from "./modules/NavBar.js";
 import NewReview from "./pages/NewReview.js";
 import Home from "./pages/Home.js";
 import Explore from "./pages/Explore.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 import "../boba-ui.css";
@@ -51,6 +52,7 @@ const App = () => {
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
         <Home path="/" userId={userId} userName={userName} />
+        <Profile path="/profile/:userId" userId={userId} />
         <NewReview path="/new" userId={userId} />
         <Explore path="/explore" />
         <NotFound default />
