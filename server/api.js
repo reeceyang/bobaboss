@@ -95,6 +95,12 @@ router.post("/review", auth.ensureLoggedIn, (req, res) => {
   newReview.save().then((review) => res.send(review));
 });
 
+router.get("/review/regex", (req, res) => {
+  let a = {};
+  a[req.query.field] = { $regex: req.query.regex, $options: req.query.options };
+  Review.find(a).then((reviews) => res.send(reviews));
+});
+
 router.get("/review", (req, res) => {
   Review.find(req.query).then((reviews) => res.send(reviews));
 });

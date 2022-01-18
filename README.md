@@ -13,8 +13,10 @@ To-do:
 - [ ] search button on home page doesn't work
 - [ ] responsive navbar
 - [ ] highlight active page on navbar
-- [ ] friending people
+- [ ] friending people, then search by friends
 - [ ] pin reviews on profile/other profile customization
+- [ ] name doesn't appear on homescreen after logging in sometimes?
+- [ ] refine search
 
 color palette:
 https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a

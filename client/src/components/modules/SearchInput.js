@@ -41,6 +41,7 @@ const SearchInput = (props) => {
     franchise: "example: Gong Cha",
     hot: "search across all hot drink reviews",
     cold: "search across all cold drink reviews",
+    author: "example: Tim the Beaver",
     all: "show all reviews ;)",
   };
   return (
@@ -59,6 +60,7 @@ const SearchInput = (props) => {
             value={input}
             onFocus={onShopFocus}
             onBlur={onShopBlur}
+            disabled={searchMethod === "all" || searchMethod === "hot" || searchMethod === "cold"}
             style={{ flexGrow: 1 }}
           />
         )}
@@ -75,20 +77,25 @@ const SearchInput = (props) => {
           Explore
         </button>
       </div>
-      <SuggestionBox
-        suggestions={suggestions}
-        selected={shopId}
-        onChange={(shopId, shopName) => {
-          setInput(shopName);
-          setShopId(shopId);
-        }}
-        shopFocused={shopFocused}
-      />
+      {searchMethod === "shop" ? (
+        <SuggestionBox
+          suggestions={suggestions}
+          selected={shopId}
+          onChange={(shopId, shopName) => {
+            setInput(shopName);
+            setShopId(shopId);
+          }}
+          shopFocused={shopFocused}
+        />
+      ) : (
+        <></>
+      )}
+
       <div className="u-textCenter">Search by: </div>
       <div className="u-textCenter">
         <RadioButton
           name="searchMethods"
-          elements={["shop", "flavor", "franchise", "hot", "cold", "all"]}
+          elements={["shop", "flavor", "franchise", "hot", "cold", "author", "all"]}
           checked={searchMethod}
           onClick={(event) => {
             setSearchMethod(event.target.parentNode.firstChild.value);

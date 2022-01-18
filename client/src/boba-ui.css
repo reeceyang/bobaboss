@@ -52,3 +52,11 @@
 .boba-selected {
   background-color: var(--primary) !important;
 }
+
+.boba-button:disabled,
+.boba-textinput:disabled,
+.boba-textarea:disabled {
+  background-color: var(--medgrey);
+  border: 2pt solid var(--medgrey);
+  cursor: default;
+}
