@@ -2,7 +2,6 @@ To-do:
 bugs (most important)
 
 - [ ] validate review input fields
-- [ ] fix shop select autocomplete (kind of broken rn)
 - [ ] name doesn't appear on homescreen after logging in sometimes?
 
 features (more important)
@@ -36,6 +35,7 @@ done
 - [x] search button on home page doesn't work
 - [x] force price to be number: https://stackoverflow.com/questions/24163889/html5-input-for-money-currency
 - [x] date visited field breaks if date is invalid
+- [x] fix shop select autocomplete (kind of broken rn)
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

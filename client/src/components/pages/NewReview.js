@@ -8,7 +8,6 @@ import { DebounceInput } from "react-debounce-input";
 import { Rating } from "react-simple-star-rating";
 
 const NewReview = (props) => {
-  const [shop, setShop] = useState("");
   const [review, setReview] = useState({
     drink_name: "",
     shop_id: "",
@@ -29,9 +28,9 @@ const NewReview = (props) => {
   const onShopFocus = () => setShopFocused(true);
   const onShopBlur = () => setShopFocused(false);
 
-  const showSuggestions = () => {
-    console.log(shop);
-    get("/api/autocomplete/shop", { term: shop, location: "boston" }).then((res) => {
+  const showSuggestions = (event) => {
+    console.log(event.target.value);
+    get("/api/autocomplete/shop", { term: event.target.value, location: "boston" }).then((res) => {
       setSuggestions(res.businesses);
     });
   };
@@ -77,13 +76,11 @@ const NewReview = (props) => {
         <div style={{ display: "grid" }}>
           <DebounceInput
             onChange={(event) => {
-              setShop(event.target.value);
-              showSuggestions();
+              showSuggestions(event);
             }}
-            debounceTimeout={300}
+            debounceTimeout={500}
             placeholder="example: reece’s tea at 3 ames st, cambridge"
             className="boba-textinput NewReview-shop"
-            value={shop}
             onFocus={onShopFocus}
             onBlur={onShopBlur}
           />
