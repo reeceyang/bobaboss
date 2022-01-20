@@ -31,7 +31,13 @@ const NewReview = (props) => {
   const showSuggestions = (event) => {
     console.log(event.target.value);
     get("/api/autocomplete/shop", { term: event.target.value, location: "boston" }).then((res) => {
-      setSuggestions(res.businesses);
+      let possibleSelected = [];
+      if (review.shop_id !== "") {
+        possibleSelected = suggestions.filter((suggestion) => {
+          return suggestion.id === review.shop_id;
+        });
+      }
+      setSuggestions(possibleSelected.concat(res.businesses));
     });
   };
 
