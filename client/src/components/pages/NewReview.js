@@ -98,14 +98,15 @@ const NewReview = (props) => {
           />
         </div>
 
-        <label>Date</label>
+        <label>Date Visited</label>
         <input
           type="date"
           onChange={(event) => {
             const adjustedDate = new Date(event.target.value);
-            adjustedDate.setDate(adjustedDate.getDate() + 1);
-            console.log(adjustedDate);
-            setReview({ ...review, date_visited: adjustedDate });
+            if (!isNaN(adjustedDate.getTime())) {
+              adjustedDate.setDate(adjustedDate.getDate() + 1);
+              setReview({ ...review, date_visited: adjustedDate });
+            }
           }}
           value={new Date(
             review.date_visited.getTime() - review.date_visited.getTimezoneOffset() * 60000
