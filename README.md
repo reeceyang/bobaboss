@@ -1,25 +1,43 @@
 To-do:
+bugs (most important)
+
+- [ ] validate review input fields
+- [ ] fix shop select autocomplete (kind of broken rn)
+- [ ] date visited field breaks if date is invalid
+- [ ] name doesn't appear on homescreen after logging in sometimes?
+
+features (more important)
+
+- [ ] refine search
+- [ ] save unsubmitted review in localstorage? or on server
+- [ ] show gravatar for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
+- [ ] responsive navbar
+- [ ] friending people, then search by friends
+- [ ] pin reviews on profile/other profile customization (bio, change username)
+- [ ] individual pages for reviews
+- [ ] edit/delete a post
+- [ ] improve individual review layout
+- [ ] individual pages for shops
+- [ ] link to shops and profiles on reviews (and maybe drinks?)
+- [ ] vote helpful and unhelpful
+- [ ] comments
+- [ ] contact form for if a shop is missing
+
+aesthetics (less important)
 
 - [ ] sfx?
-- [ ] validate review input fields
-- [ ] save unsubmitted review in localstorage? or on server
-- [ ] make temperature a radio button/checkbox
-- [ ] fix shop select autocomplete (kind of broken rn)
-- [ ] store user name and restaurant name on review
-- [ ] force price to be number: https://stackoverflow.com/questions/24163889/html5-input-for-money-currency
-- [ ] show gravatar for profile button on navbar: https://kyleamathews.github.io/react-gravatar/
 - [ ] footer
-- [ ] date visited field breaks if date is invalid
-- [ ] search button on home page doesn't work
-- [ ] responsive navbar
 - [ ] highlight active page on navbar
-- [ ] friending people, then search by friends
-- [ ] pin reviews on profile/other profile customization
-- [ ] name doesn't appear on homescreen after logging in sometimes?
-- [ ] refine search
+- [ ] metadata for pages
 
-color palette:
-https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
+done
+
+- [x] make temperature a radio button/checkbox
+- [x] store user name and restaurant name on review
+- [x] search button on home page doesn't work
+- [x] force price to be number: https://stackoverflow.com/questions/24163889/html5-input-for-money-currency
+
+color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 
 # How to code a webapp with this skeleton
 

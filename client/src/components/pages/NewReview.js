@@ -119,14 +119,16 @@ const NewReview = (props) => {
         <label>Photo</label>
         <input type="file" name="photo" ref={photoInput} className="boba-textinput" />
 
-        <label>Price</label>
+        <label>Price ($)</label>
         <input
-          type="text"
+          type="number"
           onChange={(event) => {
             setReview({ ...review, price: Number(event.target.value) });
           }}
-          placeholder="example: $6.90"
+          placeholder="example: 6.90"
+          step="0.01"
           className="boba-textinput"
+          value={Number(review.price)}
         />
 
         <label>Size</label>
