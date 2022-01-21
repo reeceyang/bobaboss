@@ -15,6 +15,7 @@ import "../boba-ui.css";
 // import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import ReviewPage from "./pages/ReviewPage.js";
 
 /**
  * Define the "App" component
@@ -60,6 +61,7 @@ const App = () => {
           {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
           <Home path="/" userId={userId} userName={userName} />
           <Profile path="/profile/:userId" userId={userId} />
+          <ReviewPage path="/review/:reviewId" />
           <NewReview path="/new" userId={userId} />
           <Explore path="/explore" />
           <NotFound default />

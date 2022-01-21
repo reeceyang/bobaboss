@@ -10,6 +10,11 @@
   margin-top: 8vh;
 }
 
+.Footer-text .boba-link,
+.Footer-boba .boba-link {
+  margin: 5pt;
+}
+
 .Footer-boba {
   font-weight: bold;
   font-size: 20pt;

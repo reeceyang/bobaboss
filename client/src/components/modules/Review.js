@@ -1,7 +1,7 @@
 import React from "react";
 import { formatRelative } from "date-fns";
 import { Rating } from "react-simple-star-rating";
-
+import { Link } from "@reach/router";
 import "./Review.css";
 
 const Review = (props) => {
@@ -9,8 +9,12 @@ const Review = (props) => {
     <>
       <div className="boba-box">
         <div>
-          <span className="Review-subTitle">{props.review.drink_name}</span> from{" "}
-          <span className="Review-subTitle">{props.review.shop_name}</span>
+          <span className="Review-subTitle">
+            <Link to={"/review/" + props.review._id} className="boba-link">
+              {props.review.drink_name}
+            </Link>
+          </span>{" "}
+          from <span className="Review-subTitle">{props.review.shop_name}</span>
         </div>
         <div>
           <span>{props.review.author_name}</span>,{" "}

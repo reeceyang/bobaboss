@@ -121,7 +121,9 @@ router.get("/review/regex", (req, res) => {
 });
 
 router.get("/review", (req, res) => {
-  Review.find(req.query).then((reviews) => res.send(reviews));
+  Review.find(req.query)
+    .then((reviews) => res.send(reviews))
+    .catch((error) => console.log(error));
 });
 
 router.get("/autocomplete/shop", (req, res) => {

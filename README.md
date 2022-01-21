@@ -13,7 +13,6 @@ features (more important)
 - [ ] responsive navbar
 - [ ] friending people, then search by friends
 - [ ] pin reviews on profile/other profile customization (bio, change username)
-- [ ] individual pages for reviews
 - [ ] edit/delete a post
 - [ ] improve individual review layout
 - [ ] individual pages for shops
@@ -21,6 +20,7 @@ features (more important)
 - [ ] vote helpful and unhelpful
 - [ ] comments
 - [ ] contact form for if a shop is missing
+- [ ] saving reviews and shops
 
 aesthetics (less important)
 
@@ -38,6 +38,7 @@ done
 - [x] fix shop select autocomplete (kind of broken rn)
 - [x] validate review input fields
 - [x] footer
+- [x] individual pages for reviews
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 
