@@ -42,6 +42,7 @@ const NewReview = (props) => {
   };
 
   const photoInput = useRef(null);
+  const [errors, setErrors] = useState([]);
   const handleClick = () => {
     if (photoInput.current.files[0]) {
       const photo = photoInput.current.files[0];
@@ -50,14 +51,22 @@ const NewReview = (props) => {
       fetch("/api/upload/image", { method: "POST", body: formData })
         .then(convertToJSON)
         .then((res) => {
-          post("/api/review", { ...review, photo_link: res.photoName }).then(() => {
-            navigate("..");
-          });
+          post("/api/review", { ...review, photo_link: res.photoName })
+            .then(() => {
+              navigate("..");
+            })
+            .catch((res) => {
+              setErrors(JSON.parse(res.message).errors);
+            });
         });
     } else {
-      post("/api/review", review).then(() => {
-        navigate("..");
-      });
+      post("/api/review", review)
+        .then(() => {
+          navigate("..");
+        })
+        .catch((res) => {
+          setErrors(JSON.parse(res.message).errors);
+        });
     }
   };
 
@@ -221,7 +230,14 @@ const NewReview = (props) => {
           placeholder="example: very yummy but slightly too sweet"
           className="boba-textarea"
         />
+        <div></div>
+        <div className="NewReview-errors">
+          {errors.map((error) => (
+            <p>error: {error}</p>
+          ))}
+        </div>
       </div>
+
       <button onClick={handleClick} className="boba-button NewReview-submit">
         Submit
       </button>

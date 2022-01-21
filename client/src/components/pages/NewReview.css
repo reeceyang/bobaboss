@@ -26,3 +26,8 @@
 .NewReview-shop {
   min-width: 0;
 }
+
+.NewReview-errors p {
+  color: red;
+  margin: var(--s);
+}

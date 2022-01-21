@@ -21,7 +21,14 @@ export function formatParams(params) {
 // convert a fetch result to a JSON object with error handling for fetch and json errors
 export function convertToJSON(res) {
   if (!res.ok) {
-    throw `API request failed with response status ${res.status} and text: ${res.statusText}`;
+    return res
+      .clone()
+      .json()
+      .then((err) => {
+        throw err;
+      });
+
+    // throw `API request failed with response status ${res.status} and text: ${res.statusText}`;
   }
 
   return res
@@ -58,6 +65,7 @@ export function post(endpoint, params = {}) {
     .then(convertToJSON) // convert result to JSON object
     .catch((error) => {
       // give a useful error message
-      throw `POST request to ${endpoint} failed with error:\n${error}`;
+      throw error;
+      // throw `POST request to ${endpoint} failed with error:\n${error}`;
     });
 }

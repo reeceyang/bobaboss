@@ -71,28 +71,47 @@ router.get("/user", (req, res) => {
   );
 });
 
-router.post("/review", auth.ensureLoggedIn, (req, res) => {
-  const currentTime = new Date();
-  const newReview = new Review({
-    drink_name: req.body.drink_name,
-    shop_id: req.body.shop_id,
-    shop_name: req.body.shop_name,
-    author_id: req.user._id,
-    author_name: req.user.name,
-    timestamp: currentTime,
-    date_visited: req.body.date_visited,
-    photo_link: req.body.photo_link,
-    price: req.body.price,
-    size: req.body.size,
-    temperature: req.body.temperature,
-    ice: req.body.ice,
-    sugar: req.body.sugar,
-    toppings: req.body.toppings,
-    stars: req.body.stars,
-    review_text: req.body.review_text,
-  });
+const validateReview = (review) => {
+  errors = [];
+  if (review.drink_name === "") errors.push("you must include a flavor");
+  if (review.shop_id === "" || review.shop_name === "") errors.push("you must select a shop");
+  if (isNaN(new Date(review.date_visited).getTime())) errors.push("you must provide a valid date");
+  if (isNaN(review.price) || review.price < 0)
+    errors.push("you must provide a valid price (decimal number at least zero)");
+  if (review.temperature !== "hot" && review.temperature !== "cold")
+    errors.push("you must choose either hot or cold for temperature");
+  if (review.stars === null) errors.push("you must choose a valid star rating");
+  return errors;
+};
 
-  newReview.save().then((review) => res.send(review));
+router.post("/review", auth.ensureLoggedIn, (req, res) => {
+  const errors = validateReview(req.body);
+  if (errors.length > 0) {
+    res.status(400).send({
+      message: JSON.stringify({ errors: errors }),
+    });
+  } else {
+    const currentTime = new Date();
+    const newReview = new Review({
+      drink_name: req.body.drink_name,
+      shop_id: req.body.shop_id,
+      shop_name: req.body.shop_name,
+      author_id: req.user._id,
+      author_name: req.user.name,
+      timestamp: currentTime,
+      date_visited: req.body.date_visited,
+      photo_link: req.body.photo_link,
+      price: req.body.price,
+      size: req.body.size,
+      temperature: req.body.temperature,
+      ice: req.body.ice,
+      sugar: req.body.sugar,
+      toppings: req.body.toppings,
+      stars: req.body.stars,
+      review_text: req.body.review_text,
+    });
+    newReview.save().then((review) => res.send(review));
+  }
 });
 
 router.get("/review/regex", (req, res) => {
