@@ -9,6 +9,7 @@ import { Rating } from "react-simple-star-rating";
 
 const NewReview = (props) => {
   const [review, setReview] = useState({
+    _id: null,
     drink_name: "",
     shop_id: "",
     shop_name: "",
@@ -23,6 +24,13 @@ const NewReview = (props) => {
     stars: NaN,
     review_text: "",
   });
+
+  useEffect(() => {
+    if (props.review) {
+      setReview({ ...props.review, date_visited: new Date(props.review.date_visited) });
+    }
+  }, []);
+
   const [suggestions, setSuggestions] = useState([]);
   const [shopFocused, setShopFocused] = React.useState(false);
   const onShopFocus = () => setShopFocused(true);
@@ -43,30 +51,34 @@ const NewReview = (props) => {
 
   const photoInput = useRef(null);
   const [errors, setErrors] = useState([]);
-  const handleClick = () => {
-    if (photoInput.current.files[0]) {
+  const handleClick = async () => {
+    if (photoInput.current && photoInput.current.files[0]) {
       const photo = photoInput.current.files[0];
       const formData = new FormData();
       formData.append("photo", photo);
       fetch("/api/upload/image", { method: "POST", body: formData })
         .then(convertToJSON)
         .then((res) => {
-          post("/api/review", { ...review, photo_link: res.photoName })
+          console
+            .log(post("/api/review", { ...review, photo_link: res.photoName }))
             .then(() => {
-              navigate("..");
+              navigate(-1);
+              console.log("posted");
             })
             .catch((res) => {
               setErrors(JSON.parse(res.message).errors);
             });
         });
     } else {
-      post("/api/review", review)
+      await post("/api/review", review)
         .then(() => {
-          navigate("..");
+          navigate(-1);
+          console.log("posted");
         })
         .catch((res) => {
           setErrors(JSON.parse(res.message).errors);
         });
+      console.log("clicked");
     }
   };
 
@@ -74,8 +86,7 @@ const NewReview = (props) => {
 
   return (
     <div className="boba-body">
-      <h1>New Review</h1>
-
+      <h1>{props.review ? "Edit" : "New"} Review</h1>
       <div className="NewReview-container">
         <label>Flavor</label>
         <input
@@ -85,8 +96,8 @@ const NewReview = (props) => {
           }}
           placeholder="example: Matcha Milk Tea"
           className="boba-textinput"
+          value={review.drink_name}
         />
-
         <label>Shop</label>
         <div style={{ display: "grid" }}>
           <DebounceInput
@@ -98,6 +109,7 @@ const NewReview = (props) => {
             className="boba-textinput NewReview-shop"
             onFocus={onShopFocus}
             onBlur={onShopBlur}
+            value={review.shop_name}
           />
           <SuggestionBox
             suggestions={suggestions}
@@ -109,7 +121,6 @@ const NewReview = (props) => {
             shopFocused={shopFocused}
           />
         </div>
-
         <label>Date Visited</label>
         <input
           type="date"
@@ -128,10 +139,18 @@ const NewReview = (props) => {
           className="boba-textinput"
           required
         />
-
         <label>Photo</label>
-        <input type="file" name="photo" ref={photoInput} className="boba-textinput" />
-
+        {!review.photo_link ? (
+          <input type="file" name="photo" ref={photoInput} className="boba-textinput" />
+        ) : (
+          <input
+            type="text"
+            name="photo"
+            value={review.photo_link}
+            className="boba-textinput"
+            disabled
+          />
+        )}
         <label>Price ($)</label>
         <input
           type="number"
@@ -143,7 +162,6 @@ const NewReview = (props) => {
           className="boba-textinput"
           value={Number(review.price)}
         />
-
         <label>Size</label>
         <input
           type="text"
@@ -152,8 +170,8 @@ const NewReview = (props) => {
           }}
           placeholder="example: medium"
           className="boba-textinput"
+          value={review.size}
         />
-
         <label>Temperature</label>
         <RadioButton
           name="temperature"
@@ -162,8 +180,8 @@ const NewReview = (props) => {
           onClick={(event) => {
             setReview({ ...review, temperature: event.target.parentNode.firstChild.value });
           }}
+          value={review.temperature}
         />
-
         <label>Ice</label>
         <input
           type="text"
@@ -172,8 +190,8 @@ const NewReview = (props) => {
           }}
           placeholder="example: 50%"
           className="boba-textinput"
+          value={review.ice}
         />
-
         <label>Sugar</label>
         <input
           type="text"
@@ -182,8 +200,8 @@ const NewReview = (props) => {
           }}
           placeholder="example: half"
           className="boba-textinput"
+          value={review.sugar}
         />
-
         <label>Toppings</label>
         <input
           type="text"
@@ -192,8 +210,8 @@ const NewReview = (props) => {
           }}
           placeholder="example: tapioca, herbal jelly"
           className="boba-textinput"
+          value={review.toppings}
         />
-
         <label>Stars</label>
         <div>
           <Rating
@@ -219,9 +237,9 @@ const NewReview = (props) => {
               "great",
               "masterpiece",
             ]}
+            value={review.stars}
           />
         </div>
-
         <label>Review</label>
         <textarea
           onChange={(event) => {
@@ -229,6 +247,7 @@ const NewReview = (props) => {
           }}
           placeholder="example: very yummy but slightly too sweet"
           className="boba-textarea"
+          value={review.review_text}
         />
         <div></div>
         <div className="NewReview-errors">

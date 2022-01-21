@@ -21,6 +21,9 @@ features (more important)
 - [ ] comments
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
+- [ ] flag/report button for reviews
+- [ ] whitespace in review text?
+- [ ] behavior after submitting review
 
 aesthetics (less important)
 

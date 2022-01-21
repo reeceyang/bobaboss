@@ -84,7 +84,7 @@ const validateReview = (review) => {
   return errors;
 };
 
-router.post("/review", auth.ensureLoggedIn, (req, res) => {
+router.post("/review", auth.ensureLoggedIn, async (req, res) => {
   const errors = validateReview(req.body);
   if (errors.length > 0) {
     res.status(400).send({
@@ -110,7 +110,19 @@ router.post("/review", auth.ensureLoggedIn, (req, res) => {
       stars: req.body.stars,
       review_text: req.body.review_text,
     });
-    newReview.save().then((review) => res.send(review));
+    if (!req.body._id) {
+      newReview.save().then((review) => res.send(review));
+    } else {
+      if (req.user._id !== req.body.author_id) {
+        res.status(400).send({ message: "user id and author id do not match" });
+      }
+      const review = await Review.findById(req.body._id);
+      for (const [key, value] of Object.entries(req.body)) {
+        review[key] = value;
+      }
+      review.save();
+      res.send(review);
+    }
   }
 });
 
