@@ -1,0 +1,16 @@
+.Footer-container {
+  height: var(--footer-height);
+  max-width: 100%;
+  background-color: #fae1dd;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.Footer-text {
+  margin-top: 8vh;
+}
+
+.Footer-boba {
+  font-weight: bold;
+  font-size: 20pt;
+}

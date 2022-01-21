@@ -25,7 +25,6 @@ features (more important)
 aesthetics (less important)
 
 - [ ] sfx?
-- [ ] footer
 - [ ] highlight active page on navbar
 - [ ] metadata for pages
 
@@ -38,6 +37,7 @@ done
 - [x] date visited field breaks if date is invalid
 - [x] fix shop select autocomplete (kind of broken rn)
 - [x] validate review input fields
+- [x] footer
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

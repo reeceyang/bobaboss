@@ -29,6 +29,8 @@
   --s: 8px;
   --m: 16px;
   --l: 24px;
+
+  --footer-height: 25vh;
 }
 
 body {
@@ -37,6 +39,12 @@ body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: 14pt;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 form {

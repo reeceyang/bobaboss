@@ -7,6 +7,7 @@ import NewReview from "./pages/NewReview.js";
 import Home from "./pages/Home.js";
 import Explore from "./pages/Explore.js";
 import Profile from "./pages/Profile.js";
+import Footer from "./modules/Footer.js";
 
 import "../utilities.css";
 import "../boba-ui.css";
@@ -54,14 +55,17 @@ const App = () => {
   return (
     <>
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-      <Router>
-        {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
-        <Home path="/" userId={userId} userName={userName} />
-        <Profile path="/profile/:userId" userId={userId} />
-        <NewReview path="/new" userId={userId} />
-        <Explore path="/explore" />
-        <NotFound default />
-      </Router>
+      <div style={{ flexGrow: 1 }}>
+        <Router>
+          {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+          <Home path="/" userId={userId} userName={userName} />
+          <Profile path="/profile/:userId" userId={userId} />
+          <NewReview path="/new" userId={userId} />
+          <Explore path="/explore" />
+          <NotFound default />
+        </Router>
+      </div>
+      <Footer />
     </>
   );
 };

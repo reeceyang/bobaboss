@@ -60,3 +60,17 @@
   border: 2pt solid var(--medgrey);
   cursor: default;
 }
+
+.boba-link,
+.boba-link:visited {
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+  margin: 5pt;
+  transition: 0.25s;
+  border-bottom: solid var(--primary--dim) 0pt;
+}
+
+.boba-link:hover {
+  border-bottom: solid var(--primary) 2pt;
+}
