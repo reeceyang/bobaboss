@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 import { Link } from "@reach/router";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <div className="Footer-container">
       <div className="u-textCenter Footer-text">
@@ -17,11 +17,16 @@ const Footer = () => {
         </div>
       </div>
       <div className="Footer-text">
-        <div>
-          <Link to="/join/" className="boba-link">
-            Join
-          </Link>
-        </div>
+        {!props.userId ? (
+          <div>
+            <Link to="/join/" className="boba-link">
+              Join
+            </Link>
+          </div>
+        ) : (
+          <></>
+        )}
+
         <div>
           <Link to="/new/" className="boba-link">
             New&nbsp;Review

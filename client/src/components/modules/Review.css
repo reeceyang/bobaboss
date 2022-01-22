@@ -1,6 +1,65 @@
+.Review-main {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5pt;
+}
+
 .Review-photo {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
+  flex: 50%;
+}
+
+.Review-inside {
+  margin: auto;
+}
+
+.Review-data {
+  height: auto;
+  flex: 45%;
+  padding-left: 5pt;
+}
+
+.Review-datagrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.Review-subTitle + span {
+  padding-left: 10pt;
+}
+
+.Review-bottom {
+  padding-left: 5pt;
+  margin-top: 2em;
+}
+
+.Review-datagrid .Review-subTitle {
+  grid-column: 1;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: var(--xs);
+}
+
+.Review-datagrid .Review-subTitle + * {
+  grid-column: 2;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: var(--xs);
+}
+
+@media (max-width: 690px) {
+  .Review-photo,
+  .Review-data {
+    flex: 100%;
+  }
+  .Review-photo {
+    max-width: 100%;
+    height: auto;
+    flex: 50%;
+  }
 }
 
 .Review-subContainer {

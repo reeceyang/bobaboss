@@ -70,7 +70,7 @@ const App = () => {
           <NotFound default />
         </Router>
       </div>
-      <Footer />
+      <Footer userId={userId} />
     </>
   );
 };
