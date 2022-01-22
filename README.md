@@ -1,22 +1,18 @@
 To-do:
 bugs (most important)
 
-- [ ] restrict file uploads to images only
 - [ ] images get uploaded even if review fails validation
-- [ ] name doesn't appear on homescreen after logging in sometimes?
 
 features (more important)
 
 - [ ] refine search
-- [ ] save unsubmitted review in localstorage? or on server
 - [ ] show gravatar for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
-- [ ] responsive navbar
 - [ ] friending people, then search by friends
 - [ ] pin reviews on profile/other profile customization (bio, change username)
 - [ ] edit/delete a post
 - [ ] improve individual review layout
 - [ ] individual pages for shops
-- [ ] link to shops and profiles on reviews (and maybe drinks?)
+- [ ] link to shops and profiles on reviews
 - [ ] vote helpful and unhelpful
 - [ ] comments
 - [ ] contact form for if a shop is missing
@@ -24,6 +20,7 @@ features (more important)
 - [ ] flag/report button for reviews
 - [ ] behavior after submitting review
 - [ ] trending review api endpoint
+- [ ] button to explore similar drinks on review page?
 
 aesthetics (less important)
 
@@ -45,6 +42,13 @@ done
 - [x] validate review input fields
 - [x] footer
 - [x] individual pages for reviews
+- [x] responsive navbar
+- [x] restrict file uploads to images only
+
+not going to work on
+
+- [ ] save unsubmitted review in localstorage? or on server
+- [ ] name doesn't appear on homescreen after logging in sometimes?
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

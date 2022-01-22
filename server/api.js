@@ -145,7 +145,11 @@ router.get("/autocomplete/shop", (req, res) => {
     .catch((error) => console.log(error));
 });
 
+const isImage = require("is-image");
 router.post("/upload/image", upload.single("photo"), auth.ensureLoggedIn, (req, res) => {
+  if (!isImage(req.file.originalname)) {
+    return res.status(400).send({ message: "only photo uploads are allowed" });
+  }
   const photoName = req.user._id + "_" + String(new Date().getTime()) + "_" + req.file.originalname;
   const file = bucket.file(photoName);
   const contents = req.file.buffer;

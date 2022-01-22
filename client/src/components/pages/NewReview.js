@@ -59,8 +59,7 @@ const NewReview = (props) => {
       fetch("/api/upload/image", { method: "POST", body: formData })
         .then(convertToJSON)
         .then((res) => {
-          console
-            .log(post("/api/review", { ...review, photo_link: res.photoName }))
+          post("/api/review", { ...review, photo_link: res.photoName })
             .then(() => {
               navigate(-1);
               console.log("posted");
@@ -68,6 +67,9 @@ const NewReview = (props) => {
             .catch((res) => {
               setErrors(JSON.parse(res.message).errors);
             });
+        })
+        .catch((res) => {
+          setErrors([res.message]);
         });
     } else {
       post("/api/review", review)
@@ -140,7 +142,13 @@ const NewReview = (props) => {
         />
         <label>Photo</label>
         {!review.photo_link ? (
-          <input type="file" name="photo" ref={photoInput} className="boba-textinput" />
+          <input
+            type="file"
+            accept="image/*"
+            name="photo"
+            ref={photoInput}
+            className="boba-textinput"
+          />
         ) : (
           <input
             type="text"
