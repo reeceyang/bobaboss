@@ -115,3 +115,4 @@ const NavBar = (props) => {
 };
 
 export default NavBar;
+export { googleIcon, GOOGLE_CLIENT_ID };

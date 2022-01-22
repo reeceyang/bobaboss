@@ -17,8 +17,12 @@ const Review = (props) => {
           from <span className="Review-subTitle">{props.review.shop_name}</span>
         </div>
         <div>
-          <span>{props.review.author_name}</span>,{" "}
-          <span>{formatRelative(new Date(props.review.date_visited), new Date())}</span>
+          <span>
+            <Link to={"/profile/" + props.review.author_id} className="boba-link">
+              {props.review.author_name}
+            </Link>
+          </span>
+          , <span>{formatRelative(new Date(props.review.date_visited), new Date())}</span>
         </div>
         {props.review.photo_link ? (
           <img

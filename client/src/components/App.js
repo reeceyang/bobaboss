@@ -16,6 +16,7 @@ import "../boba-ui.css";
 
 import { get, post } from "../utilities";
 import ReviewPage from "./pages/ReviewPage.js";
+import JoinPage from "./pages/JoinPage.js";
 
 /**
  * Define the "App" component
@@ -44,6 +45,7 @@ const App = () => {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
+      setUserName(user.name);
       // post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -64,6 +66,7 @@ const App = () => {
           <ReviewPage path="/review/:reviewId" />
           <NewReview path="/new" userId={userId} />
           <Explore path="/explore" />
+          <JoinPage path="/join" setters={{ setUserName, setUserId }} />
           <NotFound default />
         </Router>
       </div>

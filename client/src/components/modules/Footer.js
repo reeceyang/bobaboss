@@ -17,12 +17,21 @@ const Footer = () => {
         </div>
       </div>
       <div className="Footer-text">
-        <Link to="/new/" className="boba-link">
-          New&nbsp;Review
-        </Link>
-        <Link to="/explore/" className="boba-link">
-          Explore
-        </Link>
+        <div>
+          <Link to="/join/" className="boba-link">
+            Join
+          </Link>
+        </div>
+        <div>
+          <Link to="/new/" className="boba-link">
+            New&nbsp;Review
+          </Link>
+        </div>
+        <div>
+          <Link to="/explore/" className="boba-link">
+            Explore
+          </Link>
+        </div>
       </div>
     </div>
   );

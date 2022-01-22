@@ -50,9 +50,7 @@ const Home = (props) => {
           <></>
         ) : (
           <>
-            <h1>
-              Welcome back{props.userName ? "," : ""} {props.userName}
-            </h1>
+            <h1>Welcome back, {props.userName}</h1>
           </>
         )}
         <h3>Discover your next flavor</h3>

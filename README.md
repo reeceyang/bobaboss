@@ -13,6 +13,7 @@ features (more important)
 - [ ] individual pages for shops
 - [ ] link to shops and profiles on reviews
 - [ ] vote helpful and unhelpful
+- [ ] join flyover: https://www.npmjs.com/package/postel
 - [ ] comments
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
@@ -20,6 +21,7 @@ features (more important)
 - [ ] behavior after submitting review
 - [ ] trending review api endpoint
 - [ ] button to explore similar drinks on review page?
+- [ ] credit unsplash photographers
 
 aesthetics (less important)
 
@@ -44,11 +46,11 @@ done
 - [x] restrict file uploads to images only
 - [x] edit/delete a post
 - [x] custom google login button
+- [x] name doesn't appear on homescreen after logging in sometimes?
 
 not going to work on
 
 - [ ] save unsubmitted review in localstorage? or on server
-- [ ] name doesn't appear on homescreen after logging in sometimes?
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

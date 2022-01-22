@@ -83,7 +83,7 @@ const NewReview = (props) => {
     }
   };
 
-  if (!props.userId) return <div>Log in to post a review!</div>;
+  if (!props.userId) navigate("/join");
 
   return (
     <div className="boba-body">

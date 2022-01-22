@@ -4,10 +4,15 @@
   background-color: #fae1dd;
   display: grid;
   grid-template-columns: auto auto;
+  overflow: auto;
 }
 
 .Footer-text {
   margin-top: 8vh;
+}
+
+.Footer-text div {
+  display: block;
 }
 
 .Footer-text .boba-link,
