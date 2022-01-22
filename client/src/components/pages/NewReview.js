@@ -51,7 +51,7 @@ const NewReview = (props) => {
 
   const photoInput = useRef(null);
   const [errors, setErrors] = useState([]);
-  const handleClick = async () => {
+  const handleClick = () => {
     if (photoInput.current && photoInput.current.files[0]) {
       const photo = photoInput.current.files[0];
       const formData = new FormData();
@@ -70,7 +70,7 @@ const NewReview = (props) => {
             });
         });
     } else {
-      await post("/api/review", review)
+      post("/api/review", review)
         .then(() => {
           navigate(-1);
           console.log("posted");
@@ -78,7 +78,6 @@ const NewReview = (props) => {
         .catch((res) => {
           setErrors(JSON.parse(res.message).errors);
         });
-      console.log("clicked");
     }
   };
 

@@ -24,6 +24,14 @@
   float: right;
 }
 
+.NavBar-toggle {
+  float: right;
+}
+
+.NavBar-bars {
+  transform: translateY(0.2em);
+}
+
 .NavBar-link,
 .NavBar-link:visited {
   font-size: 18pt;
@@ -47,4 +55,28 @@
 
 .NavBar-link + .NavBar-link {
   margin-left: var(--m);
+}
+
+@media screen and (max-width: 690px) {
+  .NavBar-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .NavBar-linkContainer:nth-child(1) {
+    border-top: 1pt solid rgba(255, 255, 255, 0.555);
+    margin-top: 50pt;
+  }
+  .NavBar-linkContainer {
+    width: 100%;
+    border-top: 1pt solid rgba(255, 255, 255, 0.555);
+    text-align: center;
+    padding: var(--s);
+    margin-left: initial;
+  }
+  .NavBar-link {
+    display: block;
+  }
+  .NavBar-link + .NavBar-link {
+    margin-left: var(--xs);
+  }
 }

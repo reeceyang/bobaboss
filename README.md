@@ -22,14 +22,17 @@ features (more important)
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
 - [ ] flag/report button for reviews
-- [ ] whitespace in review text?
 - [ ] behavior after submitting review
+- [ ] trending review api endpoint
 
 aesthetics (less important)
 
 - [ ] sfx?
 - [ ] highlight active page on navbar
 - [ ] metadata for pages
+- [ ] whitespace in review text?
+- [ ] favicon
+- [ ] custom google login button
 
 done
 
