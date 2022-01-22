@@ -4,7 +4,6 @@
   top: 0;
   max-width: 100%;
   background-color: #fff;
-  padding-bottom: calc(5pt + var(--s));
   border-bottom: 1pt solid var(--medgrey);
   z-index: 1000;
 }
@@ -21,6 +20,8 @@
 
 .NavBar-linkContainer {
   margin-left: var(--l);
+  padding-top: var(--s);
+  padding-bottom: var(--s);
   float: right;
 }
 
@@ -55,6 +56,10 @@
 
 .NavBar-link + .NavBar-link {
   margin-left: var(--m);
+}
+
+.NavBar-google {
+  transform: translateY(0.1em);
 }
 
 @media screen and (max-width: 690px) {

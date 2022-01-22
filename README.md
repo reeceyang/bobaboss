@@ -9,7 +9,6 @@ features (more important)
 - [ ] show gravatar for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
 - [ ] friending people, then search by friends
 - [ ] pin reviews on profile/other profile customization (bio, change username)
-- [ ] edit/delete a post
 - [ ] improve individual review layout
 - [ ] individual pages for shops
 - [ ] link to shops and profiles on reviews
@@ -29,7 +28,6 @@ aesthetics (less important)
 - [ ] metadata for pages
 - [ ] whitespace in review text?
 - [ ] favicon
-- [ ] custom google login button
 
 done
 
@@ -44,6 +42,8 @@ done
 - [x] individual pages for reviews
 - [x] responsive navbar
 - [x] restrict file uploads to images only
+- [x] edit/delete a post
+- [x] custom google login button
 
 not going to work on
 
