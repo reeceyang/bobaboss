@@ -1,5 +1,6 @@
+import { navigate } from "@reach/router";
 import React, { useEffect, useState } from "react";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 import Review from "../modules/Review";
 import NewReview from "./NewReview";
 
@@ -28,6 +29,19 @@ const ReviewPage = (props) => {
     setEditing(!editing);
   };
 
+  const deleteReview = () => {
+    if (window.confirm("Delete this review? This action is irreversible.")) {
+      post("/api/review/delete", { _id: review._id })
+        .then(() => {
+          navigate(-1);
+        })
+        .catch((err) => {
+          console.log(err);
+          navigate(-1);
+        });
+    }
+  };
+
   if (!review) {
     return <div className="boba-body"> Review not found! </div>;
   }
@@ -39,7 +53,9 @@ const ReviewPage = (props) => {
           <button className="boba-button" onClick={editReview}>
             Edit
           </button>
-          <button className="boba-button">Delete</button>
+          <button className="boba-button" onClick={deleteReview}>
+            Delete
+          </button>
         </div>
       ) : (
         <></>

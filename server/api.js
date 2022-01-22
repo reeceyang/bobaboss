@@ -84,6 +84,25 @@ const validateReview = (review) => {
   return errors;
 };
 
+router.post("/review/delete", auth.ensureLoggedIn, async (req, res) => {
+  const review = await Review.findById(req.body._id);
+  if (!review) return res.status(400).send({ message: "review does not exist" });
+  if (req.user._id !== review.author_id) {
+    return res.status(400).send({ message: "user id and author id do not match" });
+  }
+  if (review.photo_link) {
+    bucket
+      .file(review.photo_link)
+      .delete()
+      .then(() => {
+        console.log("deleted " + review.photo_link);
+      });
+  }
+  Review.deleteOne({ _id: req.body._id }).then(() => {
+    res.send("deleted review " + req.body._id);
+  });
+});
+
 router.post("/review", auth.ensureLoggedIn, async (req, res) => {
   const errors = validateReview(req.body);
   if (errors.length > 0) {
@@ -113,10 +132,10 @@ router.post("/review", auth.ensureLoggedIn, async (req, res) => {
     if (!req.body._id) {
       newReview.save().then((review) => res.send(review));
     } else {
-      if (req.user._id !== req.body.author_id) {
-        res.status(400).send({ message: "user id and author id do not match" });
-      }
       const review = await Review.findById(req.body._id);
+      if (req.user._id !== review.author_id) {
+        return res.status(400).send({ message: "user id and author id do not match" });
+      }
       for (const [key, value] of Object.entries(req.body)) {
         review[key] = value;
       }
