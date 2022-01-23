@@ -1,24 +1,21 @@
 To-do:
 bugs (most important)
 
+- [ ] delete console.logs!!!
 - [ ] images get uploaded even if review fails validation
 
 features (more important)
 
-- [ ] refine search
-- [ ] show gravatar for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
-- [ ] friending people, then search by friends
 - [ ] pin reviews on profile/other profile customization (bio, change username)
-- [ ] improve individual review layout
 - [ ] individual pages for shops
 - [ ] link to shops and profiles on reviews
+- [ ] refine search
+- [ ] aggregate drinks from same shop
 - [ ] vote helpful and unhelpful
 - [ ] join flyover: https://www.npmjs.com/package/postel
 - [ ] comments
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
-- [ ] flag/report button for reviews
-- [ ] behavior after submitting review
 - [ ] trending review api endpoint
 - [ ] button to explore similar drinks on review page?
 - [ ] credit unsplash photographers
@@ -26,7 +23,6 @@ features (more important)
 
 aesthetics (less important)
 
-- [ ] sfx?
 - [ ] highlight active page on navbar
 - [ ] metadata for pages
 - [ ] whitespace in review text?
@@ -48,10 +44,17 @@ done
 - [x] edit/delete a post
 - [x] custom google login button
 - [x] name doesn't appear on homescreen after logging in sometimes?
+- [x] improve individual review layout
+- [x] put rating/review on right side if no photo
 
 not going to work on
 
 - [ ] save unsubmitted review in localstorage? or on server
+- [ ] sfx?
+- [ ] flag/report button for reviews
+- [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
+- [ ] friending people, then search by friends
+- [ ] behavior after submitting review
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

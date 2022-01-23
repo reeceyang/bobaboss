@@ -7,6 +7,28 @@ import "./Review.css";
 const Review = (props) => {
   const none = <span style={{ color: "var(--darkgrey)" }}>none</span>;
 
+  const dataGrid = (
+    <div className="Review-datagrid">
+      <span className="Review-subTitle">Price</span>
+      <span>${Number(props.review.price).toFixed(2)}</span>
+
+      <span className="Review-subTitle">Size</span>
+      <span>{props.review.size ? props.review.size : none}</span>
+
+      <span className="Review-subTitle">Temperature</span>
+      <span>{props.review.temperature ? props.review.temperature : none}</span>
+
+      <span className="Review-subTitle">Ice</span>
+      <span>{props.review.ice ? props.review.ice : none}</span>
+
+      <span className="Review-subTitle">Sugar</span>
+      <span>{props.review.sugar ? props.review.sugar : none}</span>
+
+      <span className="Review-subTitle">Toppings</span>
+      <span>{props.review.toppings ? props.review.toppings : none}</span>
+    </div>
+  );
+
   return (
     <div className="boba-box">
       <div className="Review-inside">
@@ -29,34 +51,18 @@ const Review = (props) => {
           </div>
         </div>
         <div className="Review-main">
-          {props.review.photo_link ? (
-            <img
-              className="Review-photo"
-              src={`https://storage.googleapis.com/boba-photos/${props.review.photo_link}`}
-            />
-          ) : (
-            <></>
-          )}
-          <div className="Review-data">
-            <div className="Review-datagrid">
-              <span className="Review-subTitle">Price</span>
-              <span>${Number(props.review.price).toFixed(2)}</span>
-
-              <span className="Review-subTitle">Size</span>
-              <span>{props.review.size ? props.review.size : none}</span>
-
-              <span className="Review-subTitle">Temperature</span>
-              <span>{props.review.temperature ? props.review.temperature : none}</span>
-
-              <span className="Review-subTitle">Ice</span>
-              <span>{props.review.ice ? props.review.ice : none}</span>
-
-              <span className="Review-subTitle">Sugar</span>
-              <span>{props.review.sugar ? props.review.sugar : none}</span>
-
-              <span className="Review-subTitle">Toppings</span>
-              <span>{props.review.toppings ? props.review.toppings : none}</span>
-            </div>
+          <div className="Review-left">
+            {props.review.photo_link ? (
+              <img
+                className="Review-photo"
+                src={`https://storage.googleapis.com/boba-photos/${props.review.photo_link}`}
+              />
+            ) : (
+              dataGrid
+            )}
+          </div>
+          <div className="Review-right">
+            {props.review.photo_link ? dataGrid : <></>}
             <div className="Review-bottom">
               <Rating
                 ratingValue={props.review.stars}

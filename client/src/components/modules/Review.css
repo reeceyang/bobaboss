@@ -4,17 +4,21 @@
   margin-top: 5pt;
 }
 
-.Review-photo {
-  max-width: 50%;
-  height: auto;
+.Review-left {
   flex: 50%;
+}
+
+.Review-photo {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .Review-inside {
   margin: auto;
 }
 
-.Review-data {
+.Review-right {
   height: auto;
   flex: 45%;
   padding-left: 5pt;
@@ -51,7 +55,7 @@
 }
 
 @media (max-width: 690px) {
-  .Review-photo,
+  .Review-left,
   .Review-data {
     flex: 100%;
   }
