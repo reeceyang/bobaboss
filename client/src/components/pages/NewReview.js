@@ -37,7 +37,6 @@ const NewReview = (props) => {
   const onShopBlur = () => setShopFocused(false);
 
   const showSuggestions = (event) => {
-    console.log(event.target.value);
     get("/api/autocomplete/shop", { term: event.target.value, location: "boston" }).then((res) => {
       let possibleSelected = [];
       if (review.shop_id !== "") {
@@ -62,7 +61,6 @@ const NewReview = (props) => {
           post("/api/review", { ...review, photo_link: res.photoName })
             .then(() => {
               navigate(-1);
-              console.log("posted");
             })
             .catch((res) => {
               setErrors(JSON.parse(res.message).errors);
@@ -75,7 +73,6 @@ const NewReview = (props) => {
       post("/api/review", review)
         .then(() => {
           navigate(-1);
-          console.log("posted");
         })
         .catch((res) => {
           setErrors(JSON.parse(res.message).errors);
@@ -116,7 +113,6 @@ const NewReview = (props) => {
             suggestions={suggestions}
             selected={review.shop_id}
             onChange={(shopId, shopName) => {
-              console.log(shopId);
               setReview({ ...review, shop_id: shopId, shop_name: shopName });
             }}
             shopFocused={shopFocused}

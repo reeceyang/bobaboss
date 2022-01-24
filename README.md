@@ -17,6 +17,7 @@ features (more important)
 - [ ] trending review api endpoint
 - [ ] button to explore similar drinks on review page?
 - [ ] credit unsplash photographers
+- [ ] shop stats box
 - [ ] improve search method selection
 
 aesthetics (less important)

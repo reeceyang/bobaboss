@@ -5,7 +5,6 @@ const SingleSuggestion = (props) => {
     <button
       className={"SuggestionBox-box boba-button" + (props.selected ? " boba-selected" : "")}
       onClick={(event) => {
-        console.log("clicked");
         props.onClick(props.shopId, props.shopName);
       }}
       onMouseDown={(event) => event.preventDefault()}

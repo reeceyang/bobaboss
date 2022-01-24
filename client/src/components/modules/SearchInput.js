@@ -13,8 +13,8 @@ const SearchInput = (props) => {
   const onShopBlur = () => setShopFocused(false);
   const [suggestions, setSuggestions] = useState([]);
   const [shopId, setShopId] = useState("");
-  const showSuggestions = () => {
-    get("/api/autocomplete/shop", { term: input, location: "boston" }).then((res) => {
+  const showSuggestions = (event) => {
+    get("/api/autocomplete/shop", { term: event.target.value, location: "boston" }).then((res) => {
       setSuggestions(res.businesses);
     });
   };
@@ -24,7 +24,7 @@ const SearchInput = (props) => {
       <DebounceInput
         onChange={(event) => {
           setInput(event.target.value);
-          showSuggestions();
+          showSuggestions(event);
         }}
         debounceTimeout={300}
         placeholder="example: reece’s tea at 3 ames st, cambridge"
