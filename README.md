@@ -15,17 +15,16 @@ features (more important)
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
 - [ ] trending review api endpoint
-- [ ] button to explore similar drinks on review page?
 - [ ] credit unsplash photographers
 - [ ] shop stats box
 - [ ] improve search method selection
+- [ ] cancel edit button
 
 aesthetics (less important)
 
 - [ ] highlight active page on navbar
 - [ ] metadata for pages
 - [ ] whitespace in review text?
-- [ ] favicon
 
 done
 
@@ -47,6 +46,8 @@ done
 - [x] put rating/review on right side if no photo
 - [x] individual pages for shops
 - [x] link to shops and profiles on reviews
+- [x] favicon
+- [x] button to explore similar drinks on review page?
 
 not going to work on
 

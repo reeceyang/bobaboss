@@ -1,6 +1,6 @@
 import { navigate } from "@reach/router";
 import React, { useEffect, useState } from "react";
-import { get, post } from "../../utilities";
+import { get, post, formatParams } from "../../utilities";
 import Review from "../modules/Review";
 import NewReview from "./NewReview";
 
@@ -48,6 +48,7 @@ const ReviewPage = (props) => {
   return (
     <div className="boba-body">
       <Review review={review} />
+
       {userId === review.author_id ? (
         <div>
           <button className="boba-button" onClick={editReview}>
@@ -60,7 +61,29 @@ const ReviewPage = (props) => {
       ) : (
         <></>
       )}
-      {editing ? <NewReview review={review} userId={userId} /> : <></>}
+      {editing ? (
+        <NewReview review={review} userId={userId} />
+      ) : (
+        <>
+          <div>
+            <button
+              className="boba-button"
+              onClick={() => {
+                navigate(
+                  "/explore" +
+                    "?" +
+                    formatParams({
+                      input: review.drink_name,
+                      searchMethod: "flavor",
+                    })
+                );
+              }}
+            >
+              Explore more “{review.drink_name}” reviews
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
