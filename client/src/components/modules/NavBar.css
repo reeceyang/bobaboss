@@ -12,10 +12,14 @@
   color: var(--black);
   font-size: 20pt;
   transition: 0.25s;
+  transform: translateY(2.5pt);
+  opacity: 1;
 }
 
 .NavBar-link.NavBar-title:hover {
-  transform: translateY(5pt);
+  color: var(--primary);
+  transform: translateY(4pt);
+  opacity: 1;
 }
 
 .NavBar-linkContainer {

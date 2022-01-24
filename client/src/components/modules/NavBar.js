@@ -58,7 +58,7 @@ const NavBar = (props) => {
   return (
     <nav className="NavBar-container">
       <Link to="/" className="NavBar-title NavBar-link u-inlineBlock">
-        BobaBoss
+        🧋BobaBoss
       </Link>
       {screenWidth <= resizeWidth ? (
         <button className="boba-button NavBar-toggle" onClick={toggleNav}>
