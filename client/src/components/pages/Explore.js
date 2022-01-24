@@ -57,7 +57,7 @@ const Explore = (props) => {
     <div className="boba-body">
       <h1>Find the best boba in Boston</h1>
       <SearchInput onSearch={getReviews} />
-      <h1>Results</h1>
+      {reviews.length > 0 ? <h1>Results</h1> : <></>}
       <Feed reviews={reviews} />
     </div>
   );

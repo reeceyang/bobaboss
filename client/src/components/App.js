@@ -8,6 +8,7 @@ import Home from "./pages/Home.js";
 import Explore from "./pages/Explore.js";
 import Profile from "./pages/Profile.js";
 import Footer from "./modules/Footer.js";
+import ShopPage from "./pages/ShopPage.js";
 
 import "../utilities.css";
 import "../boba-ui.css";
@@ -67,6 +68,7 @@ const App = () => {
           <NewReview path="/new" userId={userId} />
           <Explore path="/explore" />
           <JoinPage path="/join" setters={{ setUserName, setUserId }} />
+          <ShopPage path="/shop/:shopId" />
           <NotFound default />
         </Router>
       </div>

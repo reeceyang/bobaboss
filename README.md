@@ -7,8 +7,6 @@ bugs (most important)
 features (more important)
 
 - [ ] pin reviews on profile/other profile customization (bio, change username)
-- [ ] individual pages for shops
-- [ ] link to shops and profiles on reviews
 - [ ] refine search
 - [ ] aggregate drinks from same shop
 - [ ] vote helpful and unhelpful
@@ -46,6 +44,8 @@ done
 - [x] name doesn't appear on homescreen after logging in sometimes?
 - [x] improve individual review layout
 - [x] put rating/review on right side if no photo
+- [x] individual pages for shops
+- [x] link to shops and profiles on reviews
 
 not going to work on
 

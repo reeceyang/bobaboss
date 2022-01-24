@@ -39,7 +39,10 @@ const Review = (props) => {
             </Link>
           </div>
           <div>
-            from <span>{props.review.shop_name}</span>
+            from{" "}
+            <Link to={"/shop/" + props.review.shop_id} className="boba-link">
+              <span>{props.review.shop_name}</span>
+            </Link>
           </div>
           <div>
             <span>
