@@ -37,6 +37,11 @@ const Footer = (props) => {
             Explore
           </Link>
         </div>
+        <div>
+          <Link to="/attributions/" className="boba-link">
+            Attributions
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -14,16 +14,16 @@ features (more important)
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
 - [ ] trending review api endpoint
-- [ ] credit unsplash photographers
 - [ ] shop stats box
 - [ ] improve search method selection
 - [ ] cancel edit button
+- [ ] friending people, then search by friends
+- [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
 
 aesthetics (less important)
 
 - [ ] highlight active page on navbar
 - [ ] metadata for pages
-- [ ] whitespace in review text?
 
 done
 
@@ -48,15 +48,15 @@ done
 - [x] favicon
 - [x] button to explore similar drinks on review page?
 - [x] refine search
+- [x] credit unsplash photographers
 
 not going to work on
 
 - [ ] save unsubmitted review in localstorage? or on server
 - [ ] sfx?
 - [ ] flag/report button for reviews
-- [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
-- [ ] friending people, then search by friends
 - [ ] behavior after submitting review
+- [ ] whitespace in review text?
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 
