@@ -12,6 +12,7 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 const Review = require("./models/review");
+const Contact = require("./models/contact");
 
 // import authentication library
 const auth = require("./auth");
@@ -170,6 +171,39 @@ router.get("/autocomplete/shop", (req, res) => {
     .get("https://api.yelp.com/v3/businesses/search", req.query)
     .then((shops) => res.send(shops))
     .catch((error) => console.log(error));
+});
+
+const validateContact = (contact) => {
+  errors = [];
+  if (contact.name === "") errors.push("you must include a name");
+  if (
+    !String(contact.email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+  )
+    errors.push("you must provide a valid email");
+  if (contact.message === "") errors.push("your question cannot be blank");
+  return errors;
+};
+
+router.post("/contact", (req, res) => {
+  const errors = validateContact(req.body);
+  if (errors.length > 0) {
+    res.status(400).send({
+      message: JSON.stringify({ errors: errors }),
+    });
+  } else {
+    const currentTime = new Date();
+    const newContact = new Contact({
+      name: req.body.name,
+      email: req.body.email,
+      message: req.body.message,
+      timestamp: currentTime,
+    });
+    newContact.save().then((contact) => res.send(contact));
+  }
 });
 
 const isImage = require("is-image");

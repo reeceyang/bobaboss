@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { get, post, convertToJSON } from "../../utilities";
-import { navigate } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import "./NewReview.css";
 import SuggestionBox from "../modules/SuggestionBox";
 import RadioButton from "../modules/RadioButton";
@@ -259,10 +259,18 @@ const NewReview = (props) => {
           ))}
         </div>
       </div>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <button onClick={handleClick} className="boba-button">
+          Submit
+        </button>
+      </div>
 
-      <button onClick={handleClick} className="boba-button NewReview-submit">
-        Submit
-      </button>
+      <div style={{ color: "var(--darkgrey)" }} className="u-textCenter">
+        Shop not showing up?{" "}
+        <Link to="/contact/" className="boba-link">
+          Let us know.
+        </Link>
+      </div>
     </div>
   );
 };

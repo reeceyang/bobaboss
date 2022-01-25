@@ -10,6 +10,7 @@ import Profile from "./pages/Profile.js";
 import Footer from "./modules/Footer.js";
 import ShopPage from "./pages/ShopPage.js";
 import Attributions from "./pages/Attributions.js";
+import Contact from "./pages/Contact.js";
 
 import "../utilities.css";
 import "../boba-ui.css";
@@ -71,6 +72,7 @@ const App = () => {
           <JoinPage path="/join" setters={{ setUserName, setUserId }} />
           <ShopPage path="/shop/:shopId" />
           <Attributions path="/attributions" />
+          <Contact path="/contact" />
           <NotFound default />
         </Router>
       </div>

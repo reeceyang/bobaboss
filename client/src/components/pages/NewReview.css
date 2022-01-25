@@ -19,10 +19,6 @@
   grid-column: 2;
 }
 
-.NewReview-submit {
-  float: right;
-}
-
 .NewReview-shop {
   min-width: 0;
 }

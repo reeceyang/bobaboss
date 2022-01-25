@@ -24,17 +24,20 @@ const Footer = (props) => {
             </Link>
           </div>
         ) : (
-          <></>
+          <div>
+            <Link to="/new/" className="boba-link">
+              New&nbsp;Review
+            </Link>
+          </div>
         )}
-
-        <div>
-          <Link to="/new/" className="boba-link">
-            New&nbsp;Review
-          </Link>
-        </div>
         <div>
           <Link to="/explore/" className="boba-link">
             Explore
+          </Link>
+        </div>
+        <div>
+          <Link to="/contact/" className="boba-link">
+            Contact
           </Link>
         </div>
         <div>
