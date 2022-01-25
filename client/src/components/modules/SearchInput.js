@@ -95,7 +95,7 @@ const SearchInput = (props) => {
       <div className="u-textCenter">
         <RadioButton
           name="searchMethods"
-          elements={["shop", "flavor", "franchise", "hot", "cold", "author", "all"]}
+          elements={["shop", "flavor", "franchise", "author", "all"]}
           checked={searchMethod}
           onClick={(event) => {
             setSearchMethod(event.target.parentNode.firstChild.value);

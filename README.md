@@ -7,7 +7,6 @@ bugs (most important)
 features (more important)
 
 - [ ] pin reviews on profile/other profile customization (bio, change username)
-- [ ] refine search
 - [ ] aggregate drinks from same shop
 - [ ] vote helpful and unhelpful
 - [ ] join flyover: https://www.npmjs.com/package/postel
@@ -48,6 +47,7 @@ done
 - [x] link to shops and profiles on reviews
 - [x] favicon
 - [x] button to explore similar drinks on review page?
+- [x] refine search
 
 not going to work on
 
