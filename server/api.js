@@ -145,6 +145,14 @@ router.post("/review", auth.ensureLoggedIn, async (req, res) => {
   }
 });
 
+// send 10 most recent reviews
+router.get("/review/trending", (req, res) => {
+  Review.find({})
+    .sort({ timestamp: -1 })
+    .then((reviews) => res.send(reviews.slice(0, 10)))
+    .catch((error) => console.log(error));
+});
+
 router.get("/review/regex", (req, res) => {
   let a = {};
   a[req.query.field] = { $regex: req.query.regex, $options: req.query.options };

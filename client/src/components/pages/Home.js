@@ -22,7 +22,7 @@ const Home = (props) => {
 
   useEffect(() => {
     document.title = "BobaBoss";
-    get("/api/review", {}).then((reviews) => {
+    get("/api/review/trending").then((reviews) => {
       setReviews(reviews);
     });
   }, []);
@@ -56,7 +56,7 @@ const Home = (props) => {
         <h3>Discover your next flavor</h3>
         <SearchInput onSearch={goExplore} />
         <h1>Trending</h1>
-        <Feed reviews={reviews.reverse()} />
+        <Feed reviews={reviews} />
       </div>
     </>
   );

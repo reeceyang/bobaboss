@@ -13,12 +13,12 @@ features (more important)
 - [ ] comments
 - [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
-- [ ] trending review api endpoint
 - [ ] shop stats box
 - [ ] improve search method selection
 - [ ] cancel edit button
 - [ ] friending people, then search by friends
 - [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
+- [ ] top reviews endpoint
 
 aesthetics (less important)
 
@@ -49,6 +49,7 @@ done
 - [x] button to explore similar drinks on review page?
 - [x] refine search
 - [x] credit unsplash photographers
+- [x] trending review api endpoint
 
 not going to work on
 
