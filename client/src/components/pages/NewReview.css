@@ -1,6 +1,8 @@
 .NewReview-container {
   display: grid;
   grid-template-columns: auto 1fr;
+  min-width: 0;
+  overflow: auto;
 }
 
 .NewReview-row {
