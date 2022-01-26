@@ -65,12 +65,12 @@ const App = () => {
         <Router>
           {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
           <Home path="/" userId={userId} userName={userName} />
-          <Profile path="/profile/:userId" userId={userId} />
-          <ReviewPage path="/review/:reviewId" />
+          <Profile path="/profile/:userId" loggedInUserId={userId} />
+          <ReviewPage path="/review/:reviewId" userId={userId} />
           <NewReview path="/new" userId={userId} />
-          <Explore path="/explore" />
+          <Explore path="/explore" userId={userId} />
           <JoinPage path="/join" setters={{ setUserName, setUserId }} />
-          <ShopPage path="/shop/:shopId" />
+          <ShopPage path="/shop/:shopId" userId={userId} />
           <Attributions path="/attributions" />
           <Contact path="/contact" />
           <NotFound default />

@@ -56,7 +56,7 @@ const Home = (props) => {
         <h3>Discover your next flavor</h3>
         <SearchInput onSearch={goExplore} />
         <h1>Trending</h1>
-        <Feed reviews={reviews} />
+        <Feed reviews={reviews} userId={props.userId} />
       </div>
     </>
   );

@@ -47,7 +47,7 @@ const ReviewPage = (props) => {
   }
   return (
     <div className="boba-body">
-      <Review review={review} />
+      <Review review={review} userId={userId} />
 
       {userId === review.author_id ? (
         <div>

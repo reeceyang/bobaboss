@@ -13,6 +13,7 @@ const express = require("express");
 const User = require("./models/user");
 const Review = require("./models/review");
 const Contact = require("./models/contact");
+const Vote = require("./models/vote");
 
 // import authentication library
 const auth = require("./auth");
@@ -220,6 +221,49 @@ router.post("/upload/image", upload.single("photo"), auth.ensureLoggedIn, (req, 
       res.send({ photoName: photoName });
     }
   });
+});
+
+router.post("/like/new", async (req, res) => {
+  const votes = await Vote.find({ parent_id: req.body.parent_id });
+  console.log(votes.length);
+  if (votes.length === 0) {
+    const vote = new Vote({
+      parent_id: req.body.parent_id,
+      up: [],
+      down: [],
+    });
+    vote.save().then((vote) => res.send(vote));
+  }
+  res.send({ up: [], down: [] });
+});
+
+// req.body.up === true if user upvoted
+router.post("/like", auth.ensureLoggedIn, async (req, res) => {
+  const votes = await Vote.find({ parent_id: req.body.parent_id });
+  if (votes.length === 0) {
+    const vote = new Vote({
+      parent_id: req.body.parent_id,
+      up: req.body.up ? [req.user._id] : [],
+      down: req.body.up ? [] : [req.user._id],
+    });
+    vote.save().then((vote) => res.send(vote));
+  } else {
+    const vote = await Vote.findById(votes[0]._id);
+    vote.up = vote.up.filter((id) => req.user._id !== id);
+    vote.down = vote.down.filter((id) => req.user._id !== id);
+    if (req.body.up === true) {
+      vote.up.push(req.user._id);
+    } else if (req.body.up === false) {
+      vote.down.push(req.user._id);
+    }
+    vote.save().then((vote) => res.send(vote));
+  }
+});
+
+router.get("/like", (req, res) => {
+  Vote.findOne({ parent_id: req.query.parent_id })
+    .then((vote) => res.send(vote))
+    .catch((error) => console.log(error));
 });
 
 // anything else falls to this "not found" case

@@ -265,7 +265,7 @@ const NewReview = (props) => {
         </button>
       </div>
 
-      <div style={{ color: "var(--darkgrey)" }} className="u-textCenter">
+      <div className="u-textCenter">
         Shop not showing up?{" "}
         <Link to="/contact/" className="boba-link">
           Let us know.

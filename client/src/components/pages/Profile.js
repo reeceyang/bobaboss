@@ -29,7 +29,7 @@ const Profile = (props) => {
       <div className="boba-body">
         <h1>{user.name}</h1>
         <h2>{reviews.length} Reviews</h2>
-        <Feed reviews={reviews.reverse()} />
+        <Feed reviews={reviews.reverse()} userId={props.loggedInUserId} />
       </div>
     </>
   );

@@ -6,18 +6,9 @@ bugs (most important)
 
 features (more important)
 
-- [ ] pin reviews on profile/other profile customization (bio, change username)
 - [ ] aggregate drinks from same shop
-- [ ] vote helpful and unhelpful
-- [ ] join flyover: https://www.npmjs.com/package/postel
-- [ ] comments
-- [ ] contact form for if a shop is missing
 - [ ] saving reviews and shops
 - [ ] shop stats box
-- [ ] improve search method selection
-- [ ] cancel edit button
-- [ ] friending people, then search by friends
-- [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
 - [ ] top reviews endpoint
 
 aesthetics (less important)
@@ -50,6 +41,9 @@ done
 - [x] refine search
 - [x] credit unsplash photographers
 - [x] trending review api endpoint
+- [x] contact form for if a shop is missing
+- [x] cancel edit button
+- [x] vote helpful and unhelpful
 
 not going to work on
 
@@ -58,6 +52,12 @@ not going to work on
 - [ ] flag/report button for reviews
 - [ ] behavior after submitting review
 - [ ] whitespace in review text?
+- [ ] improve search method selection (forgot what I meant by this)
+- [ ] pin reviews on profile/other profile customization (bio, change username)
+- [ ] friending people, then search by friends
+- [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
+- [ ] join flyover: https://www.npmjs.com/package/postel
+- [ ] comments
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

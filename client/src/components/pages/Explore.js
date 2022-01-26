@@ -77,7 +77,6 @@ const Explore = (props) => {
   useEffect(() => {
     if (props.location.search) {
       const query = Object.fromEntries(new URLSearchParams(props.location.search));
-      console.log(query);
       if (query.searchMethod) getReviews(query.input, query.searchMethod);
     }
   }, []);
@@ -108,7 +107,7 @@ const Explore = (props) => {
         <>
           <h1>Results</h1>
 
-          <Feed reviews={refineSearch(reviews)} />
+          <Feed reviews={refineSearch(reviews)} userId={props.userId} />
         </>
       ) : (
         <>

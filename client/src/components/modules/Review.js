@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { formatRelative } from "date-fns";
 import { Rating } from "react-simple-star-rating";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
+import { get, post } from "../../utilities.js";
 import "./Review.css";
 
 const Review = (props) => {
   const none = <span style={{ color: "var(--darkgrey)" }}>none</span>;
+  const [vote, setVote] = useState({ up: [], down: [] });
+
+  useEffect(() => {
+    get(`/api/like`, { parent_id: props.review._id })
+      .then((res) => {
+        if (res.up) {
+          setVote(res);
+        } else {
+          post(`/api/like/new`, { parent_id: props.review._id });
+        }
+      })
+      .catch((err) => {});
+  }, []);
 
   const dataGrid = (
     <div className="Review-datagrid">
@@ -94,6 +108,62 @@ const Review = (props) => {
                 <div>{props.review.review_text ? props.review.review_text : none}</div>
               </div>
             </div>
+          </div>
+        </div>
+        <div>
+          <div className="u-inlineBlock">
+            {vote.up.length} 👍
+            <button
+              className={"boba-button" + (vote.up.includes(props.userId) ? " boba-selected" : "")}
+              onClick={() => {
+                if (vote.up.includes(props.userId)) {
+                  post(`/api/like`, { parent_id: props.review._id })
+                    .then((res) => {
+                      setVote(res);
+                    })
+                    .catch((err) => {
+                      navigate("/join");
+                    });
+                } else {
+                  post(`/api/like`, { parent_id: props.review._id, up: true })
+                    .then((res) => {
+                      setVote(res);
+                    })
+                    .catch((err) => {
+                      navigate("/join");
+                    });
+                }
+              }}
+            >
+              vote helpful
+            </button>
+          </div>
+          <div className="u-inlineBlock">
+            {vote.down.length} 👎
+            <button
+              className={"boba-button" + (vote.down.includes(props.userId) ? " boba-selected" : "")}
+              onClick={() => {
+                if (vote.down.includes(props.userId)) {
+                  post(`/api/like`, { parent_id: props.review._id })
+                    .then((res) => {
+                      setVote(res);
+                    })
+                    .catch((err) => {
+                      navigate("/join");
+                    });
+                } else {
+                  post(`/api/like`, { parent_id: props.review._id, up: false })
+                    .then((res) => {
+                      setVote(res);
+                    })
+                    .catch((err) => {
+                      navigate("/join");
+                    });
+                }
+              }}
+            >
+              vote unhelpful
+            </button>
           </div>
         </div>
       </div>

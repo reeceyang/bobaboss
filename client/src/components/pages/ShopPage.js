@@ -19,7 +19,7 @@ const ShopPage = (props) => {
   return (
     <div className="boba-body">
       <h1>{reviews[0].shop_name}</h1>
-      <Feed reviews={reviews} />
+      <Feed reviews={reviews} userId={props.userId} />
     </div>
   );
 };

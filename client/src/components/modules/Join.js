@@ -8,7 +8,7 @@ const Join = (props) => {
   return (
     <div className="boba-box u-textCenter">
       <h3>Discover your next flavor</h3>
-      <div>Join BobaBoss to post reviews!</div>
+      <div>Join BobaBoss to review boba, vote on reviews, and more!</div>
       <div>
         <GoogleLogin
           clientId={GOOGLE_CLIENT_ID}
