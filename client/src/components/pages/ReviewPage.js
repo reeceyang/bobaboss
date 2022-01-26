@@ -62,7 +62,19 @@ const ReviewPage = (props) => {
         <></>
       )}
       {editing ? (
-        <NewReview review={review} userId={userId} />
+        <>
+          <NewReview review={review} userId={userId} />
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              className="boba-button"
+              onClick={() => {
+                setEditing(false);
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </>
       ) : (
         <>
           <div>
