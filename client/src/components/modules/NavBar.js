@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import { FaBars } from "react-icons/fa";
-
 import "./NavBar.css";
 
 // This identifies your web application to Google's authentication service
@@ -58,7 +57,7 @@ const NavBar = (props) => {
   return (
     <nav className="NavBar-container">
       <Link to="/" className="NavBar-title NavBar-link u-inlineBlock">
-        🧋BobaBoss
+        BobaBoss
       </Link>
       {screenWidth <= resizeWidth ? (
         <button className="boba-button NavBar-toggle" onClick={toggleNav}>
