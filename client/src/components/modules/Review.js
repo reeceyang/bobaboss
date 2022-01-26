@@ -110,7 +110,7 @@ const Review = (props) => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="u-textCenter">
           <div className="u-inlineBlock">
             {vote.up.length} 👍
             <button

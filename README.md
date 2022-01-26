@@ -8,13 +8,8 @@ features (more important)
 
 - [ ] aggregate drinks from same shop
 - [ ] saving reviews and shops
-- [ ] shop stats box
-- [ ] top reviews endpoint
 
 aesthetics (less important)
-
-- [ ] highlight active page on navbar
-- [ ] metadata for pages
 
 done
 
@@ -44,6 +39,7 @@ done
 - [x] contact form for if a shop is missing
 - [x] cancel edit button
 - [x] vote helpful and unhelpful
+- [x] shop stats box
 
 not going to work on
 
@@ -58,6 +54,9 @@ not going to work on
 - [ ] show google profile picture for profile button on navbar and on review: https://kyleamathews.github.io/react-gravatar/
 - [ ] join flyover: https://www.npmjs.com/package/postel
 - [ ] comments
+- [ ] metadata for pages
+- [ ] highlight active page on navbar
+- [ ] top reviews endpoint
 
 color palette: https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a
 

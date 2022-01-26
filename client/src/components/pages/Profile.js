@@ -3,6 +3,7 @@ import { get } from "../../utilities";
 
 import "../../utilities.css";
 import Feed from "../modules/Feed";
+import StatsBox from "../modules/StatsBox";
 
 const Profile = (props) => {
   const [user, setUser] = useState(undefined);
@@ -28,6 +29,7 @@ const Profile = (props) => {
     <>
       <div className="boba-body">
         <h1>{user.name}</h1>
+        <StatsBox reviews={reviews} />
         <h2>{reviews.length} Reviews</h2>
         <Feed reviews={reviews.reverse()} userId={props.loggedInUserId} />
       </div>
